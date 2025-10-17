@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { breathingShadow } from "@/lib/animation-configs";
 
 interface BreathingShadowProps {
   children: React.ReactNode;
@@ -12,8 +11,18 @@ export default function BreathingShadow({ children, className = "" }: BreathingS
   return (
     <motion.div
       className={className}
-      animate={breathingShadow.animate}
-      transition={breathingShadow.transition}
+      animate={{
+        boxShadow: [
+          "0 4px 20px rgba(0,0,0,0.15)",
+          "0 8px 40px rgba(0,0,0,0.25)",
+          "0 4px 20px rgba(0,0,0,0.15)"
+        ]
+      }}
+      transition={{
+        duration: 5,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }}
     >
       {children}
     </motion.div>

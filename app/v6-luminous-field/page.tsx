@@ -3,14 +3,23 @@
 import Header from "@/components/shared/Header";
 import FormContainer from "@/components/shared/FormContainer";
 import { motion } from "framer-motion";
-import { breathingBackground } from "@/lib/animation-configs";
 
 export default function V6LuminousField() {
   return (
     <motion.div
       className="min-h-screen flex flex-col"
-      animate={breathingBackground.animate}
-      transition={breathingBackground.transition}
+      animate={{
+        backgroundColor: [
+          "rgba(3, 211, 177, 0.95)",
+          "rgba(3, 211, 177, 1)",
+          "rgba(3, 211, 177, 0.95)"
+        ]
+      }}
+      transition={{
+        duration: 6,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }}
     >
       <Header layout="balanced" showYear={true} />
 

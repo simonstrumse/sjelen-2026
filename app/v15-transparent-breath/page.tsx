@@ -3,7 +3,6 @@
 import Header from "@/components/shared/Header";
 import FormContainer from "@/components/shared/FormContainer";
 import { motion } from "framer-motion";
-import { breathingOpacity } from "@/lib/animation-configs";
 
 export default function V15TransparentBreath() {
   return (
@@ -13,8 +12,14 @@ export default function V15TransparentBreath() {
       <div className="flex-1 flex items-center justify-center px-4 md:px-8 py-12">
         <motion.div
           className="w-full max-w-md md:max-w-lg"
-          animate={breathingOpacity.animate}
-          transition={breathingOpacity.transition}
+          animate={{
+            opacity: [0.95, 1, 0.95]
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
         >
           <FormContainer inputVariant="rounded" buttonVariant="rounded" />
         </motion.div>

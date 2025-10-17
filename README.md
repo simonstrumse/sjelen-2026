@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sjelen 2026 - Design Exploration
+
+20 unique design concepts for Amanda Delara's 2026 project "Sjelen" (The Soul).
+
+## Overview
+
+This project showcases 20 different design variants for a minimalist landing page, all centered around the turquoise theme (#03d3b1) that represents calmness and tranquility.
+
+## Design Concepts
+
+### Diverse Concepts (1-10)
+Exploring vastly different aesthetic directions while maintaining the core vision:
+
+1. **Meditative Breath** - Pure zen simplicity with breathing form
+2. **Oceanic Depths** - Water-like flowing gradients
+3. **Sacred Portal** - Centered dramatic portal effect
+4. **Infinite Space** - Ultra-minimal ghost design
+5. **Whispered Secret** - Opacity breathing with asymmetry
+6. **Luminous Field** - Full background breathing
+7. **Floating Garden** - Shadow breathing with asymmetry
+8. **Horizon Line** - Sharp architectural serenity
+9. **Pulse** - Typography breathing like a heartbeat
+10. **Ethereal Portal** - Abstract oceanic gradients
+
+### Meditative Variations (11-20)
+All based on meditative stillness but exploring different animation approaches:
+
+11. **Breathing Space** - Background breathes
+12. **Living Typography** - Text glows and breathes
+13. **Central Mandala** - Breathing circle focal point
+14. **Shadow Meditation** - Shadow instead of light
+15. **Transparent Breath** - Form materializes/dematerializes
+16. **Poetic Stillness** - Centered with poetry
+17. **Ghost Zen** - Ghost inputs, maximum minimal
+18. **Levitating Form** - Glow + shadow levitation
+19. **Intimate Breath** - Tighter cozy spacing
+20. **Sacred Geometry** - Golden ratio positioning
+
+## Tech Stack
+
+- **Next.js 14** (App Router)
+- **TypeScript**
+- **Tailwind CSS** (v4 with @theme)
+- **Framer Motion** (animations)
+- **Vercel** (deployment)
+
+## Project Structure
+
+```
+sjelen-2026/
+├── app/
+│   ├── page.tsx                    # Gallery selector
+│   ├── v1-meditative-breath/       # Variant 1
+│   ├── v2-oceanic-depths/          # Variant 2
+│   └── ... (20 variants total)
+├── components/
+│   ├── shared/                     # Reusable components
+│   ├── animations/                 # Animation wrappers
+│   └── variants/                   # Variant-specific
+├── lib/
+│   ├── constants.ts                # Variant configs
+│   └── animation-configs.ts        # Framer Motion presets
+└── types/
+    └── index.ts                    # TypeScript types
+```
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the gallery of all variants.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Deploy to Vercel with a single command:
 
-## Learn More
+```bash
+vercel --prod
+```
 
-To learn more about Next.js, take a look at the following resources:
+Or connect your GitHub repository to Vercel for automatic deployments.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## URLs
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `/` - Gallery showing all 20 variants
+- `/v1-meditative-breath` - Variant 1
+- `/v2-oceanic-depths` - Variant 2
+- ... (through v20)
 
-## Deploy on Vercel
+## Design Philosophy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+All designs honor the core vision:
+- **Turquoise (#03d3b1)** represents calmness and tranquility
+- **Minimalist aesthetic** maintains mystery
+- **Breathing animations** create meditative presence
+- **Norwegian language** for form labels
+- **Mobile-first** responsive design
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Artist
+
+**Amanda Delara** - 2026 Project "Sjelen"
+
+---
+
+Built with ❤️ using Next.js, TypeScript, Tailwind CSS & Framer Motion

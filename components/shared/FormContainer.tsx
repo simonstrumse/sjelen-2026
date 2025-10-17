@@ -34,7 +34,7 @@ export default function FormContainer({
       setMessage("Takk for at du melder deg på!");
       setEmail("");
       setPhone("");
-    } catch (error) {
+    } catch {
       setMessage("Noe gikk galt. Prøv igjen.");
     } finally {
       setIsSubmitting(false);

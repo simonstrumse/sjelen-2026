@@ -4,7 +4,6 @@ import Header from "@/components/shared/Header";
 import FormContainer from "@/components/shared/FormContainer";
 import CentralMandala from "@/components/animations/CentralMandala";
 import { motion } from "framer-motion";
-import { oceanicGradient } from "@/lib/animation-configs";
 
 export default function V10EtherealPortal() {
   return (
@@ -14,8 +13,14 @@ export default function V10EtherealPortal() {
         background: "linear-gradient(135deg, #03d3b1 0%, #02b99a 25%, #01a88b 50%, #02b99a 75%, #03d3b1 100%)",
         backgroundSize: "300% 300%"
       }}
-      animate={oceanicGradient.animate}
-      transition={oceanicGradient.transition}
+      animate={{
+        backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+      }}
+      transition={{
+        duration: 15,
+        repeat: Infinity,
+        ease: "linear"
+      }}
     >
       <CentralMandala />
 

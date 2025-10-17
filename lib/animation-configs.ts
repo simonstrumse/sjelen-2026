@@ -102,6 +102,6 @@ export const oceanicGradient = {
   transition: {
     duration: 15,
     repeat: Infinity,
-    ease: "linear"
+    ease: "linear" as const
   }
-};
+} as const;

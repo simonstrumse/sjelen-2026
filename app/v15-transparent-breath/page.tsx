@@ -13,10 +13,10 @@ export default function V15TransparentBreath() {
         <motion.div
           className="w-full max-w-md md:max-w-lg"
           animate={{
-            opacity: [0.85, 1, 0.85]
+            opacity: [0.7, 1, 0.7]
           }}
           transition={{
-            duration: 4,
+            duration: 3,
             repeat: Infinity,
             ease: "easeInOut"
           }}

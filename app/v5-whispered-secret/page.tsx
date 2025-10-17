@@ -13,10 +13,10 @@ export default function V5WhisperedSecret() {
         <motion.div
           className="w-full max-w-md"
           animate={{
-            opacity: [0.95, 1, 0.95]
+            opacity: [0.85, 1, 0.85]
           }}
           transition={{
-            duration: 5,
+            duration: 4,
             repeat: Infinity,
             ease: "easeInOut"
           }}

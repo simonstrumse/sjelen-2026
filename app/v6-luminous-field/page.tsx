@@ -10,13 +10,13 @@ export default function V6LuminousField() {
       className="min-h-screen flex flex-col"
       animate={{
         backgroundColor: [
-          "rgba(3, 211, 177, 0.95)",
-          "rgba(3, 211, 177, 1)",
-          "rgba(3, 211, 177, 0.95)"
+          "#03d3b1",
+          "#02c0a0",
+          "#03d3b1"
         ]
       }}
       transition={{
-        duration: 6,
+        duration: 5,
         repeat: Infinity,
         ease: "easeInOut"
       }}

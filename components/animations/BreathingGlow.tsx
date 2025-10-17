@@ -13,13 +13,13 @@ export default function BreathingGlow({ children, className = "" }: BreathingGlo
       className={className}
       animate={{
         boxShadow: [
-          "0 0 20px 5px rgba(255,255,255,0.3)",
-          "0 0 40px 10px rgba(255,255,255,0.5)",
-          "0 0 20px 5px rgba(255,255,255,0.3)"
+          "0 0 30px 10px rgba(255,255,255,0.4)",
+          "0 0 60px 20px rgba(255,255,255,0.7)",
+          "0 0 30px 10px rgba(255,255,255,0.4)"
         ]
       }}
       transition={{
-        duration: 5,
+        duration: 4,
         repeat: Infinity,
         ease: "easeInOut"
       }}

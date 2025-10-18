@@ -3,7 +3,7 @@ import Logo from "@/components/shared/Logo";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#03d3b1] text-white">
+    <main className="stone-surface relative min-h-screen overflow-hidden text-white">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.18),rgba(3,211,177,0.05)_55%,rgba(3,211,177,0)_90%)]" />
         <div className="animate-serene absolute left-1/2 top-1/2 h-[130%] w-[130%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.24)_0%,rgba(3,211,177,0)_70%)]" />

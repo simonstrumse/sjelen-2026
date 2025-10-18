@@ -28,7 +28,7 @@ export default function SubscribeForm() {
       onSubmit={handleSubmit}
       className="flex flex-col gap-6"
     >
-      <div className="flex flex-col gap-2">
+      <div className="stone-engraved">
         <label htmlFor="email" className="sr-only">
           E-postadresse
         </label>
@@ -38,11 +38,11 @@ export default function SubscribeForm() {
           type="email"
           required
           placeholder="E-postadresse"
-          className="w-full rounded-[14px] border border-white/0 bg-white/14 px-5 py-3 text-base font-light tracking-[0.08em] text-white placeholder:text-white/55 shadow-[inset_0_0_34px_rgba(255,255,255,0.18),inset_0_-1px_0_rgba(255,255,255,0.32)] backdrop-blur-2xl outline-none transition focus:bg-white/18 focus:placeholder:text-white/35 focus:shadow-[inset_0_0_30px_rgba(255,255,255,0.24),inset_0_-1px_0_rgba(255,255,255,0.4)]"
+          autoComplete="email"
         />
       </div>
 
-      <div className="flex flex-col gap-2">
+      <div className="stone-engraved">
         <label htmlFor="phone" className="sr-only">
           Telefonnummer
         </label>
@@ -52,14 +52,14 @@ export default function SubscribeForm() {
           type="tel"
           required
           placeholder="Telefonnummer"
-          className="w-full rounded-[14px] border border-white/0 bg-white/12 px-5 py-3 text-base font-light tracking-[0.08em] text-white placeholder:text-white/55 shadow-[inset_0_0_32px_rgba(255,255,255,0.16),inset_0_-1px_0_rgba(255,255,255,0.28)] backdrop-blur-2xl outline-none transition focus:bg-white/17 focus:placeholder:text-white/32 focus:shadow-[inset_0_0_28px_rgba(255,255,255,0.22),inset_0_-1px_0_rgba(255,255,255,0.36)]"
+          autoComplete="tel"
         />
       </div>
 
       <button
         type="submit"
         disabled={isSubmitting}
-        className="relative mx-auto mt-2 w-full rounded-[14px] border border-white/24 bg-[linear-gradient(156deg,rgba(255,255,255,0.18)_0%,rgba(3,140,122,0.42)_100%)] px-7 py-3.5 text-center text-sm font-semibold uppercase tracking-[0.2em] text-white shadow-[0_24px_60px_rgba(2,58,50,0.45),0_2px_0_rgba(255,255,255,0.55),inset_0_-12px_28px_rgba(1,45,38,0.45)] transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/55 disabled:cursor-not-allowed disabled:opacity-60"
+        className="stone-button relative mx-auto mt-2 w-full"
       >
         {isSubmitting ? "Sender..." : "Meld meg på"}
       </button>

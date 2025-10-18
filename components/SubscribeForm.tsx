@@ -26,7 +26,7 @@ export default function SubscribeForm() {
     <form
       ref={formRef}
       onSubmit={handleSubmit}
-      className="flex flex-col gap-5"
+      className="flex flex-col gap-6"
     >
       <div className="flex flex-col gap-2">
         <label htmlFor="email" className="sr-only">
@@ -38,7 +38,7 @@ export default function SubscribeForm() {
           type="email"
           required
           placeholder="E-postadresse"
-          className="w-full rounded-3xl border border-white/25 bg-white/25 px-5 py-3 text-base text-[#074b3f] shadow-[0_30px_90px_rgba(6,56,47,0.35)] backdrop-blur-xl outline-none transition focus:border-white/70 focus:bg-white/70"
+          className="w-full rounded-[32px] border border-white/0 bg-white/12 px-5 py-3 text-base font-light tracking-[0.08em] text-white placeholder:text-white/55 shadow-[inset_0_0_30px_rgba(255,255,255,0.12),inset_0_-1px_0_rgba(255,255,255,0.25)] backdrop-blur-2xl outline-none transition focus:bg-white/18 focus:placeholder:text-white/35 focus:shadow-[inset_0_0_28px_rgba(255,255,255,0.2),inset_0_-1px_0_rgba(255,255,255,0.35)]"
         />
       </div>
 
@@ -52,14 +52,14 @@ export default function SubscribeForm() {
           type="tel"
           required
           placeholder="Telefonnummer"
-          className="w-full rounded-3xl border border-white/20 bg-white/15 px-5 py-3 text-base text-white placeholder:text-white/65 shadow-[0_22px_70px_rgba(3,65,55,0.32)] backdrop-blur-xl outline-none transition focus:border-white/60 focus:bg-white/35"
+          className="w-full rounded-[32px] border border-white/0 bg-white/10 px-5 py-3 text-base font-light tracking-[0.08em] text-white placeholder:text-white/55 shadow-[inset_0_0_28px_rgba(255,255,255,0.1),inset_0_-1px_0_rgba(255,255,255,0.22)] backdrop-blur-2xl outline-none transition focus:bg-white/16 focus:placeholder:text-white/30 focus:shadow-[inset_0_0_26px_rgba(255,255,255,0.18),inset_0_-1px_0_rgba(255,255,255,0.32)]"
         />
       </div>
 
       <button
         type="submit"
         disabled={isSubmitting}
-        className="mx-auto w-full rounded-3xl bg-white px-6 py-3 text-center text-xs font-bold uppercase tracking-[0.32em] text-[#039f8d] shadow-[0_18px_50px_rgba(4,78,66,0.35)] transition hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white/70 disabled:cursor-not-allowed disabled:opacity-60"
+        className="mx-auto mt-2 w-full rounded-[32px] bg-white/95 px-6 py-3 text-center text-xs font-bold uppercase tracking-[0.32em] text-[#039f8d] shadow-[0_22px_55px_rgba(4,78,66,0.32)] transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-white/70 disabled:cursor-not-allowed disabled:opacity-60"
       >
         {isSubmitting ? "Sender..." : "Meld meg på"}
       </button>

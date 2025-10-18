@@ -1,111 +1,41 @@
-"use client";
-
-import Link from "next/link";
-import { VARIANTS } from "@/lib/constants";
+import SubscribeForm from "@/components/SubscribeForm";
+import Logo from "@/components/shared/Logo";
 
 export default function Home() {
-  const diverseConcepts = VARIANTS.slice(0, 10);
-  const meditativeVariations = VARIANTS.slice(10, 20);
-
-  // Favorites picked by Amanda
-  const favorites = VARIANTS.filter(v =>
-    ['v2', 'v5', 'v10', 'v15'].includes(v.id)
-  );
-
   return (
-    <div className="min-h-screen bg-[#03d3b1] py-12 px-4 md:px-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <header className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 tracking-wider">
-            SJELEN 2026
-          </h1>
-          <p className="text-white/80 text-lg md:text-xl">
-            20 Design Concepts for Amanda Delara
-          </p>
-        </header>
-
-        {/* Favorites Section */}
-        <section className="mb-16">
-          <div className="flex items-center gap-3 mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-white tracking-wide">
-              ⭐ Amanda&apos;s Favorites
-            </h2>
-            <span className="text-white/60 text-sm">(Selected picks)</span>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {favorites.map((variant) => (
-              <Link
-                key={variant.id}
-                href={variant.path}
-                className="bg-white/20 backdrop-blur-sm rounded-lg p-6 hover:bg-white/30 transition-all hover:scale-105 border-2 border-white/40 shadow-lg"
-              >
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-xl font-bold text-white">{variant.name}</h3>
-                  <span className="text-white/80 text-sm font-bold">{variant.id}</span>
-                </div>
-                <p className="text-white/90 text-sm leading-relaxed font-medium">
-                  {variant.description}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* Diverse Concepts Section */}
-        <section className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 tracking-wide">
-            Diverse Concepts (1-10)
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {diverseConcepts.map((variant) => (
-              <Link
-                key={variant.id}
-                href={variant.path}
-                className="bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-all hover:scale-105 border border-white/20"
-              >
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-xl font-bold text-white">{variant.name}</h3>
-                  <span className="text-white/60 text-sm">{variant.id}</span>
-                </div>
-                <p className="text-white/80 text-sm leading-relaxed">
-                  {variant.description}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* Meditative Variations Section */}
-        <section>
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 tracking-wide">
-            Meditative Variations (11-20)
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {meditativeVariations.map((variant) => (
-              <Link
-                key={variant.id}
-                href={variant.path}
-                className="bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-all hover:scale-105 border border-white/20"
-              >
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-xl font-bold text-white">{variant.name}</h3>
-                  <span className="text-white/60 text-sm">{variant.id}</span>
-                </div>
-                <p className="text-white/80 text-sm leading-relaxed">
-                  {variant.description}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* Footer */}
-        <footer className="mt-16 text-center text-white/60 text-sm">
-          <p>Click any variant to view the full design</p>
-          <p className="mt-2">Built with Next.js 14, TypeScript, Tailwind CSS & Framer Motion</p>
-        </footer>
+    <main className="relative min-h-screen overflow-hidden bg-[#03d3b1] text-white">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-0 bg-[#03d3b1]" />
+        <div className="animate-serene absolute left-1/2 top-1/2 h-[140%] w-[140%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.35)_0%,rgba(3,211,177,0)_70%)]" />
+        <div className="animate-serene-delay absolute left-1/2 top-1/2 h-[160%] w-[160%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.18)_0%,rgba(3,211,177,0)_80%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.18),rgba(3,211,177,0.08)_45%,rgba(3,211,177,0)_85%)]" />
       </div>
-    </div>
+
+      <div className="relative z-10 flex min-h-screen items-center px-6 py-20 sm:px-10">
+        <div className="mx-auto flex w-full max-w-3xl flex-col gap-12 rounded-[32px] border border-white/10 bg-white/5 p-10 backdrop-blur-3xl md:gap-16 md:p-16">
+          <header className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+            <Logo className="md:h-14" />
+            <div className="text-right text-xs font-semibold uppercase tracking-[0.5em] text-white/70 md:text-sm">
+              Sjelen 2026
+            </div>
+          </header>
+
+          <section className="space-y-5 text-left">
+            <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
+              Pust inn roen.
+            </h1>
+            <p className="max-w-xl text-base text-white/80 md:text-lg">
+              Meld deg på for å få de første oppdateringene om DELARA sitt 2026-prosjekt Sjelen. Ett pust, én e-post, og du er med.
+            </p>
+          </section>
+
+          <SubscribeForm />
+
+          <p className="text-center text-xs uppercase tracking-[0.4em] text-white/50 md:text-sm">
+            Vi sender kun når det føles viktig.
+          </p>
+        </div>
+      </div>
+    </main>
   );
 }

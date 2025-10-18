@@ -59,7 +59,7 @@ export default function SubscribeForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="mx-auto mt-2 w-full rounded-[32px] bg-white/95 px-6 py-3 text-center text-xs font-bold uppercase tracking-[0.32em] text-[#039f8d] shadow-[0_22px_55px_rgba(4,78,66,0.32)] transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-white/70 disabled:cursor-not-allowed disabled:opacity-60"
+        className="relative mx-auto mt-2 w-full rounded-[22px] border border-white/28 bg-white/18 px-6 py-3 text-center text-xs font-semibold uppercase tracking-[0.28em] text-white shadow-[0_22px_55px_rgba(4,78,66,0.32),inset_0_2px_0_rgba(255,255,255,0.65),inset_0_-8px_20px_rgba(1,49,41,0.4)] transition hover:bg-white/24 hover:shadow-[0_24px_60px_rgba(4,78,66,0.38),inset_0_2px_0_rgba(255,255,255,0.7),inset_0_-8px_20px_rgba(1,49,41,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 disabled:cursor-not-allowed disabled:opacity-60"
       >
         {isSubmitting ? "Sender..." : "Meld meg på"}
       </button>

@@ -19,10 +19,7 @@ export default function Home() {
         </header>
 
         <div className="flex flex-1 items-center justify-center px-6 pb-20 pt-10 md:px-0">
-          <div className="w-full max-w-sm space-y-8 text-center md:max-w-md">
-            <span className="text-xs uppercase tracking-[0.4em] text-white/75 md:text-sm">
-              DELARA 2026
-            </span>
+          <div className="w-full max-w-sm text-center md:max-w-md">
             <SubscribeForm />
           </div>
         </div>

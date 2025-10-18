@@ -26,13 +26,10 @@ export default function SubscribeForm() {
     <form
       ref={formRef}
       onSubmit={handleSubmit}
-      className="space-y-5"
+      className="space-y-4"
     >
-      <div className="space-y-1.5 text-left">
-        <label
-          htmlFor="email"
-          className="text-xs font-semibold tracking-[0.16em] text-white/80 uppercase"
-        >
+      <div className="space-y-1">
+        <label htmlFor="email" className="sr-only">
           E-postadresse
         </label>
         <input
@@ -40,23 +37,21 @@ export default function SubscribeForm() {
           name="email"
           type="email"
           required
+          placeholder="E-postadresse"
           className="w-full rounded-2xl border border-white/20 bg-white/85 px-4 py-3 text-base text-[#0a4a40] outline-none transition focus:border-white/60 focus:bg-white"
         />
       </div>
 
-      <div className="space-y-1.5 text-left">
-        <label
-          htmlFor="phone"
-          className="text-xs font-semibold tracking-[0.16em] text-white/80 uppercase"
-        >
-          Telefon (valgfritt)
+      <div className="space-y-1">
+        <label htmlFor="phone" className="sr-only">
+          Telefon
         </label>
         <input
           id="phone"
           name="phone"
           type="tel"
-          className="w-full rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-base text-white placeholder:text-white/60 outline-none transition focus:border-white/40 focus:bg-white/20"
-          placeholder="+47"
+          placeholder="Telefon (valgfritt)"
+          className="w-full rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-base text-white placeholder:text-white/55 outline-none transition focus:border-white/40 focus:bg-white/20"
         />
       </div>
 

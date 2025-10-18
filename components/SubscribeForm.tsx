@@ -28,7 +28,7 @@ export default function SubscribeForm() {
       onSubmit={handleSubmit}
       className="flex flex-col gap-6"
     >
-      <div className="stone-engraved">
+      <div className="flex flex-col gap-2">
         <label htmlFor="email" className="sr-only">
           E-postadresse
         </label>
@@ -38,11 +38,11 @@ export default function SubscribeForm() {
           type="email"
           required
           placeholder="E-postadresse"
-          autoComplete="email"
+          className="w-full rounded-[14px] border border-white/0 bg-white/14 px-5 py-3 text-base font-light tracking-[0.08em] text-white placeholder:text-white/55 shadow-[inset_0_0_34px_rgba(255,255,255,0.18),inset_0_-1px_0_rgba(255,255,255,0.32)] backdrop-blur-2xl outline-none transition focus:bg-white/18 focus:placeholder:text-white/35 focus:shadow-[inset_0_0_30px_rgba(255,255,255,0.24),inset_0_-1px_0_rgba(255,255,255,0.4)]"
         />
       </div>
 
-      <div className="stone-engraved">
+      <div className="flex flex-col gap-2">
         <label htmlFor="phone" className="sr-only">
           Telefonnummer
         </label>
@@ -52,7 +52,7 @@ export default function SubscribeForm() {
           type="tel"
           required
           placeholder="Telefonnummer"
-          autoComplete="tel"
+          className="w-full rounded-[14px] border border-white/0 bg-white/12 px-5 py-3 text-base font-light tracking-[0.08em] text-white placeholder:text-white/55 shadow-[inset_0_0_32px_rgba(255,255,255,0.16),inset_0_-1px_0_rgba(255,255,255,0.28)] backdrop-blur-2xl outline-none transition focus:bg-white/17 focus:placeholder:text-white/32 focus:shadow-[inset_0_0_28px_rgba(255,255,255,0.22),inset_0_-1px_0_rgba(255,255,255,0.36)]"
         />
       </div>
 

@@ -19,19 +19,19 @@ export default function SubscribeForm() {
       setStatus("success");
       setMessage("Takk for at du melder deg på.");
       formRef.current?.reset();
-    }, 1200);
+    }, 900);
   };
 
   return (
     <form
       ref={formRef}
       onSubmit={handleSubmit}
-      className="space-y-6"
+      className="space-y-5"
     >
-      <div className="space-y-2 text-left">
+      <div className="space-y-1.5 text-left">
         <label
           htmlFor="email"
-          className="text-sm font-semibold tracking-[0.2em] text-white/80 uppercase"
+          className="text-xs font-semibold tracking-[0.16em] text-white/80 uppercase"
         >
           E-postadresse
         </label>
@@ -40,14 +40,14 @@ export default function SubscribeForm() {
           name="email"
           type="email"
           required
-          className="w-full rounded-2xl border border-white/20 bg-white/90 px-5 py-4 text-base text-[#0a4a40] shadow-[0_20px_60px_rgba(0,0,0,0.12)] outline-none transition focus:bg-white focus:shadow-[0_24px_70px_rgba(0,0,0,0.18)]"
+          className="w-full rounded-2xl border border-white/20 bg-white/85 px-4 py-3 text-base text-[#0a4a40] outline-none transition focus:border-white/60 focus:bg-white"
         />
       </div>
 
-      <div className="space-y-2 text-left">
+      <div className="space-y-1.5 text-left">
         <label
           htmlFor="phone"
-          className="text-sm font-semibold tracking-[0.2em] text-white/80 uppercase"
+          className="text-xs font-semibold tracking-[0.16em] text-white/80 uppercase"
         >
           Telefon (valgfritt)
         </label>
@@ -55,7 +55,7 @@ export default function SubscribeForm() {
           id="phone"
           name="phone"
           type="tel"
-          className="w-full rounded-2xl border border-white/10 bg-white/20 px-5 py-4 text-base text-white placeholder:text-white/60 outline-none transition focus:border-white/30 focus:bg-white/30"
+          className="w-full rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-base text-white placeholder:text-white/60 outline-none transition focus:border-white/40 focus:bg-white/20"
           placeholder="+47"
         />
       </div>
@@ -63,13 +63,13 @@ export default function SubscribeForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full rounded-2xl bg-white px-6 py-4 text-center text-sm font-bold uppercase tracking-[0.3em] text-[#039f8d] transition hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white/70 disabled:cursor-not-allowed disabled:opacity-60"
+        className="w-full rounded-2xl bg-white px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.28em] text-[#039f8d] transition hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white/60 disabled:cursor-not-allowed disabled:opacity-60"
       >
         {isSubmitting ? "Sender..." : "Meld meg på"}
       </button>
 
       {status === "success" && (
-        <p className="text-center text-sm font-medium text-white">
+        <p className="text-center text-sm font-medium text-white/85">
           {message}
         </p>
       )}

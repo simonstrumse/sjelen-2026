@@ -26,9 +26,9 @@ export default function SubscribeForm() {
     <form
       ref={formRef}
       onSubmit={handleSubmit}
-      className="space-y-4"
+      className="flex flex-col gap-5"
     >
-      <div className="space-y-1">
+      <div className="flex flex-col gap-2">
         <label htmlFor="email" className="sr-only">
           E-postadresse
         </label>
@@ -38,27 +38,28 @@ export default function SubscribeForm() {
           type="email"
           required
           placeholder="E-postadresse"
-          className="w-full rounded-2xl border border-white/20 bg-white/85 px-4 py-3 text-base text-[#0a4a40] outline-none transition focus:border-white/60 focus:bg-white"
+          className="w-full rounded-3xl border border-white/25 bg-white/25 px-5 py-3 text-base text-[#074b3f] shadow-[0_30px_90px_rgba(6,56,47,0.35)] backdrop-blur-xl outline-none transition focus:border-white/70 focus:bg-white/70"
         />
       </div>
 
-      <div className="space-y-1">
+      <div className="flex flex-col gap-2">
         <label htmlFor="phone" className="sr-only">
-          Telefon
+          Telefonnummer
         </label>
         <input
           id="phone"
           name="phone"
           type="tel"
-          placeholder="Telefon (valgfritt)"
-          className="w-full rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-base text-white placeholder:text-white/55 outline-none transition focus:border-white/40 focus:bg-white/20"
+          required
+          placeholder="Telefonnummer"
+          className="w-full rounded-3xl border border-white/20 bg-white/15 px-5 py-3 text-base text-white placeholder:text-white/65 shadow-[0_22px_70px_rgba(3,65,55,0.32)] backdrop-blur-xl outline-none transition focus:border-white/60 focus:bg-white/35"
         />
       </div>
 
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full rounded-2xl bg-white px-5 py-3 text-center text-xs font-bold uppercase tracking-[0.28em] text-[#039f8d] transition hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white/60 disabled:cursor-not-allowed disabled:opacity-60"
+        className="mx-auto w-full rounded-3xl bg-white px-6 py-3 text-center text-xs font-bold uppercase tracking-[0.32em] text-[#039f8d] shadow-[0_18px_50px_rgba(4,78,66,0.35)] transition hover:bg-white/90 focus:outline-none focus:ring-2 focus:ring-white/70 disabled:cursor-not-allowed disabled:opacity-60"
       >
         {isSubmitting ? "Sender..." : "Meld meg på"}
       </button>

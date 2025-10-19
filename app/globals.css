@@ -42,12 +42,15 @@ body {
   overflow: hidden;
 }
 
+/* ENGRAVED INPUT - Deep carved depression in stone */
 .stone-engraved {
   position: relative;
   isolation: isolate;
-  border-radius: 6px;
+  border-radius: 4px;
   border: none;
-  background: rgba(255, 255, 255, 0.04);
+  background:
+    linear-gradient(165deg, rgba(0, 70, 60, 0.35) 0%, rgba(0, 85, 72, 0.28) 45%, rgba(0, 95, 82, 0.22) 100%),
+    linear-gradient(180deg, rgba(0, 50, 43, 0.4) 0%, rgba(0, 75, 64, 0.25) 100%);
   color: white;
   font-size: 1rem;
   letter-spacing: 0.08em;
@@ -56,87 +59,217 @@ body {
   outline: none;
   text-transform: uppercase;
   width: 100%;
+  /* Deep carving - light catches top inner edge, darkness at bottom */
   box-shadow:
-    inset 0 2px 4px rgba(0, 0, 0, 0.1),
-    inset 0 -2px 4px rgba(255, 255, 255, 0.05),
-    inset 0 8px 24px rgba(0, 50, 43, 0.2),
-    0 4px 16px rgba(0, 50, 43, 0.15),
-    0 8px 32px rgba(0, 50, 43, 0.1);
-  backdrop-filter: blur(40px) saturate(1.2) brightness(0.95);
-  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    /* Top inner highlight - light catching carved edge */
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 2px 1px rgba(175, 255, 250, 0.12),
+    /* Side inner highlights */
+    inset -1px 0 1px rgba(95, 255, 245, 0.08),
+    inset 1px 0 1px rgba(0, 40, 34, 0.25),
+    /* Deep shadow at bottom of carving */
+    inset 0 -1px 0 rgba(0, 25, 21, 0.8),
+    inset 0 -3px 2px rgba(0, 30, 26, 0.7),
+    /* Depth of carved depression */
+    inset 0 4px 12px rgba(0, 35, 30, 0.6),
+    inset -4px 6px 16px rgba(0, 40, 34, 0.5),
+    inset 4px 8px 20px rgba(0, 45, 38, 0.45),
+    inset 0 12px 28px rgba(0, 50, 43, 0.4),
+    /* Maximum depth at center */
+    inset -8px 16px 32px rgba(0, 55, 47, 0.35),
+    inset 8px 14px 28px rgba(0, 48, 41, 0.32),
+    /* Outer subtle glow from surface */
+    0 1px 2px rgba(95, 255, 245, 0.06);
+  backdrop-filter: blur(20px) saturate(0.85) brightness(0.75);
+  transition: all 280ms cubic-bezier(0.4, 0, 0.2, 1);
   text-shadow:
-    0 1px 2px rgba(0, 50, 43, 0.3),
-    0 0 8px rgba(95, 255, 245, 0.15);
+    0 1px 3px rgba(0, 40, 34, 0.5),
+    0 2px 8px rgba(0, 30, 26, 0.3);
 }
 
 .stone-engraved::placeholder {
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.55);
   letter-spacing: 0.08em;
   text-shadow:
-    0 1px 2px rgba(0, 50, 43, 0.25),
-    0 0 6px rgba(95, 255, 245, 0.12);
+    0 1px 3px rgba(0, 35, 30, 0.45),
+    0 2px 6px rgba(0, 25, 21, 0.25);
 }
 
+/* Focus state - subtle internal glow in carved depression */
 .stone-engraved:focus {
-  background: rgba(255, 255, 255, 0.06);
+  background:
+    linear-gradient(165deg, rgba(0, 75, 64, 0.38) 0%, rgba(0, 90, 77, 0.3) 45%, rgba(0, 100, 85, 0.24) 100%),
+    linear-gradient(180deg, rgba(0, 55, 47, 0.42) 0%, rgba(0, 80, 68, 0.28) 100%);
   box-shadow:
-    inset 0 2px 6px rgba(0, 0, 0, 0.12),
-    inset 0 -2px 6px rgba(255, 255, 255, 0.08),
-    inset 0 8px 24px rgba(0, 50, 43, 0.25),
-    0 0 0 2px rgba(95, 255, 245, 0.15),
-    0 4px 20px rgba(95, 255, 245, 0.1),
-    0 8px 40px rgba(0, 50, 43, 0.2);
-  backdrop-filter: blur(44px) saturate(1.3) brightness(1.05);
+    /* Enhanced top highlight when focused */
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 2px 1px rgba(175, 255, 250, 0.16),
+    inset -1px 0 1px rgba(95, 255, 245, 0.12),
+    inset 1px 0 1px rgba(0, 40, 34, 0.28),
+    /* Bottom shadow remains deep */
+    inset 0 -1px 0 rgba(0, 25, 21, 0.85),
+    inset 0 -3px 2px rgba(0, 30, 26, 0.75),
+    /* Depth shadows */
+    inset 0 4px 12px rgba(0, 35, 30, 0.65),
+    inset -4px 6px 16px rgba(0, 40, 34, 0.55),
+    inset 4px 8px 20px rgba(0, 45, 38, 0.5),
+    inset 0 12px 28px rgba(0, 50, 43, 0.45),
+    inset -8px 16px 32px rgba(0, 55, 47, 0.4),
+    inset 8px 14px 28px rgba(0, 48, 41, 0.38),
+    /* Subtle cyan glow from within carving */
+    inset 0 -8px 16px rgba(95, 255, 245, 0.04),
+    /* Outer focus glow */
+    0 0 0 1px rgba(95, 255, 245, 0.2),
+    0 2px 8px rgba(95, 255, 245, 0.12),
+    0 4px 16px rgba(95, 255, 245, 0.08);
+  backdrop-filter: blur(22px) saturate(0.9) brightness(0.82);
 }
 
+/* EMBOSSED BUTTON - Raised rectangular stone slab */
 .stone-button {
   position: relative;
   isolation: isolate;
-  border-radius: 6px;
+  border-radius: 3px;
   border: none;
-  background: rgba(255, 255, 255, 0.05);
+  background:
+    linear-gradient(175deg, rgba(4, 180, 156, 0.18) 0%, rgba(3, 145, 125, 0.22) 48%, rgba(2, 115, 99, 0.28) 100%),
+    linear-gradient(180deg, rgba(95, 255, 245, 0.12) 0%, rgba(3, 211, 177, 0.15) 35%, rgba(2, 157, 134, 0.18) 100%);
   color: white;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-weight: 600;
   padding: 1rem 1.5rem;
+  /* Raised slab - light on top, shadow underneath */
   box-shadow:
-    inset 0 2px 4px rgba(255, 255, 255, 0.1),
-    inset 0 -2px 4px rgba(0, 0, 0, 0.15),
-    inset 0 -12px 32px rgba(0, 50, 43, 0.3),
-    0 4px 16px rgba(0, 50, 43, 0.2),
-    0 8px 32px rgba(0, 50, 43, 0.15),
-    0 16px 48px rgba(0, 50, 43, 0.1);
-  backdrop-filter: blur(32px) saturate(1.2) brightness(0.9);
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    /* Top surface highlights - flat plane catching light */
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 2px 0 rgba(175, 255, 250, 0.3),
+    inset 0 3px 2px rgba(95, 255, 245, 0.2),
+    /* Side edge highlights */
+    inset -1px 0 1px rgba(95, 255, 245, 0.15),
+    inset 1px 0 1px rgba(0, 85, 72, 0.2),
+    /* Inner light scattering on top surface */
+    inset -3px 4px 8px rgba(175, 255, 250, 0.12),
+    inset 3px 5px 10px rgba(255, 255, 255, 0.08),
+    /* Bottom edge darkness (thickness of slab) */
+    inset 0 -1px 0 rgba(0, 40, 34, 0.75),
+    inset 0 -2px 1px rgba(0, 45, 38, 0.65),
+    inset 0 -6px 12px rgba(0, 50, 43, 0.4),
+    /* Deep bottom internal shadow */
+    inset -6px -10px 20px rgba(0, 55, 47, 0.28),
+    inset 6px -8px 16px rgba(0, 50, 43, 0.25),
+    /* Cast shadow beneath raised slab */
+    0 1px 2px rgba(0, 35, 30, 0.3),
+    0 2px 4px rgba(0, 40, 34, 0.28),
+    0 4px 8px rgba(0, 45, 38, 0.25),
+    0 8px 16px rgba(0, 50, 43, 0.22),
+    0 12px 24px rgba(0, 55, 47, 0.18),
+    0 20px 40px rgba(0, 50, 43, 0.15),
+    0 32px 64px rgba(0, 48, 41, 0.12);
+  backdrop-filter: blur(24px) saturate(1.15) brightness(1.08);
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
   text-shadow:
-    0 2px 4px rgba(0, 50, 43, 0.4),
-    0 4px 12px rgba(0, 40, 34, 0.3);
+    0 1px 2px rgba(0, 50, 43, 0.4),
+    0 3px 8px rgba(0, 40, 34, 0.25),
+    0 -1px 0 rgba(255, 255, 255, 0.15);
 }
 
+/* Top surface lighting effect */
+.stone-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  border-radius: 3px 3px 0 0;
+  background:
+    radial-gradient(ellipse 70% 100% at 35% 0%, rgba(255, 255, 255, 0.25) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 100% at 65% 0%, rgba(175, 255, 250, 0.18) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(175, 255, 250, 0.12) 50%, transparent 100%);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Bottom edge shadow detail */
+.stone-button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 35%;
+  border-radius: 0 0 3px 3px;
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(0, 40, 34, 0.35) 50%, rgba(0, 30, 26, 0.5) 100%),
+    radial-gradient(ellipse 100% 80% at 50% 100%, rgba(0, 35, 30, 0.4) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Hover - slab catches more light */
 .stone-button:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(175deg, rgba(4, 195, 168, 0.22) 0%, rgba(3, 155, 133, 0.26) 48%, rgba(2, 125, 107, 0.32) 100%),
+    linear-gradient(180deg, rgba(95, 255, 245, 0.16) 0%, rgba(3, 211, 177, 0.18) 35%, rgba(2, 157, 134, 0.22) 100%);
   box-shadow:
-    inset 0 2px 6px rgba(255, 255, 255, 0.15),
-    inset 0 -2px 6px rgba(0, 0, 0, 0.2),
-    inset 0 -12px 32px rgba(0, 50, 43, 0.35),
-    0 0 0 2px rgba(95, 255, 245, 0.12),
-    0 4px 20px rgba(95, 255, 245, 0.08),
-    0 8px 40px rgba(0, 50, 43, 0.2),
-    0 16px 56px rgba(0, 50, 43, 0.15);
-  backdrop-filter: blur(36px) saturate(1.3) brightness(0.95);
+    /* Enhanced top highlights */
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 2px 0 rgba(175, 255, 250, 0.38),
+    inset 0 3px 2px rgba(95, 255, 245, 0.28),
+    inset -1px 0 1px rgba(95, 255, 245, 0.2),
+    inset 1px 0 1px rgba(0, 85, 72, 0.25),
+    inset -3px 4px 10px rgba(175, 255, 250, 0.16),
+    inset 3px 6px 12px rgba(255, 255, 255, 0.12),
+    /* Bottom shadows */
+    inset 0 -1px 0 rgba(0, 40, 34, 0.8),
+    inset 0 -2px 1px rgba(0, 45, 38, 0.7),
+    inset 0 -6px 12px rgba(0, 50, 43, 0.45),
+    inset -6px -10px 22px rgba(0, 55, 47, 0.32),
+    inset 6px -8px 18px rgba(0, 50, 43, 0.28),
+    /* Slightly elevated shadow */
+    0 2px 4px rgba(0, 35, 30, 0.32),
+    0 3px 6px rgba(0, 40, 34, 0.3),
+    0 6px 12px rgba(0, 45, 38, 0.28),
+    0 10px 20px rgba(0, 50, 43, 0.25),
+    0 16px 32px rgba(0, 55, 47, 0.22),
+    0 24px 48px rgba(0, 50, 43, 0.18),
+    0 36px 72px rgba(0, 48, 41, 0.14),
+    /* Subtle glow */
+    0 0 0 1px rgba(95, 255, 245, 0.18),
+    0 0 20px rgba(95, 255, 245, 0.08);
+  backdrop-filter: blur(26px) saturate(1.2) brightness(1.12);
 }
 
+/* Active - slab pressed down into surface */
 .stone-button:active {
-  transform: translateY(2px);
-  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(3px);
+  background:
+    linear-gradient(175deg, rgba(4, 160, 138, 0.15) 0%, rgba(3, 130, 112, 0.18) 48%, rgba(2, 100, 86, 0.24) 100%),
+    linear-gradient(180deg, rgba(95, 255, 245, 0.08) 0%, rgba(3, 211, 177, 0.12) 35%, rgba(2, 157, 134, 0.15) 100%);
   box-shadow:
-    inset 0 2px 4px rgba(0, 0, 0, 0.2),
-    inset 0 -2px 4px rgba(255, 255, 255, 0.05),
-    inset 0 -8px 24px rgba(0, 50, 43, 0.4),
-    0 2px 8px rgba(0, 50, 43, 0.2),
-    0 4px 16px rgba(0, 50, 43, 0.15);
-  backdrop-filter: blur(28px) saturate(1.1) brightness(0.85);
+    /* Reduced top highlights when pressed */
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 2px 0 rgba(175, 255, 250, 0.18),
+    inset 0 2px 1px rgba(95, 255, 245, 0.12),
+    inset -1px 0 1px rgba(95, 255, 245, 0.08),
+    inset 1px 0 1px rgba(0, 70, 60, 0.3),
+    inset -2px 3px 6px rgba(175, 255, 250, 0.08),
+    inset 2px 4px 8px rgba(255, 255, 255, 0.05),
+    /* Pressed down - more shadow on top */
+    inset 0 2px 4px rgba(0, 30, 26, 0.4),
+    inset 0 4px 8px rgba(0, 35, 30, 0.35),
+    /* Bottom shadows compressed */
+    inset 0 -1px 0 rgba(0, 35, 30, 0.7),
+    inset 0 -6px 10px rgba(0, 45, 38, 0.5),
+    inset -5px -8px 16px rgba(0, 50, 43, 0.38),
+    inset 5px -6px 12px rgba(0, 48, 41, 0.35),
+    /* Minimal shadow when pressed */
+    0 1px 2px rgba(0, 30, 26, 0.25),
+    0 2px 4px rgba(0, 35, 30, 0.22),
+    0 4px 8px rgba(0, 40, 34, 0.18),
+    0 8px 16px rgba(0, 45, 38, 0.15);
+  backdrop-filter: blur(20px) saturate(1.08) brightness(0.95);
 }
 
 .stone-button:disabled {
@@ -151,55 +284,33 @@ body {
    Subtle breathing effects for glassmorphism elements
    ======================================== */
 
-/* Gentle glow pulse for form elements */
-@keyframes serene-glow {
+/* Breathing light animation - subtle internal glow shifts */
+@keyframes carved-glow {
   0%, 100% {
-    box-shadow:
-      inset 0 2px 4px rgba(0, 0, 0, 0.1),
-      inset 0 -2px 4px rgba(255, 255, 255, 0.05),
-      inset 0 8px 24px rgba(0, 50, 43, 0.2),
-      0 4px 16px rgba(0, 50, 43, 0.15),
-      0 8px 32px rgba(0, 50, 43, 0.1);
+    backdrop-filter: blur(20px) saturate(0.85) brightness(0.75);
   }
   50% {
-    box-shadow:
-      inset 0 2px 4px rgba(0, 0, 0, 0.12),
-      inset 0 -2px 4px rgba(255, 255, 255, 0.08),
-      inset 0 8px 24px rgba(0, 50, 43, 0.25),
-      0 4px 20px rgba(95, 255, 245, 0.08),
-      0 8px 36px rgba(0, 50, 43, 0.15);
+    backdrop-filter: blur(22px) saturate(0.88) brightness(0.78);
   }
 }
 
-/* Subtle shimmer for button */
-@keyframes serene-shimmer {
+/* Raised slab breathing - subtle highlight shifts */
+@keyframes raised-shimmer {
   0%, 100% {
-    box-shadow:
-      inset 0 2px 4px rgba(255, 255, 255, 0.1),
-      inset 0 -2px 4px rgba(0, 0, 0, 0.15),
-      inset 0 -12px 32px rgba(0, 50, 43, 0.3),
-      0 4px 16px rgba(0, 50, 43, 0.2),
-      0 8px 32px rgba(0, 50, 43, 0.15),
-      0 16px 48px rgba(0, 50, 43, 0.1);
+    backdrop-filter: blur(24px) saturate(1.15) brightness(1.08);
   }
   50% {
-    box-shadow:
-      inset 0 2px 6px rgba(255, 255, 255, 0.12),
-      inset 0 -2px 6px rgba(0, 0, 0, 0.18),
-      inset 0 -12px 32px rgba(0, 50, 43, 0.35),
-      0 4px 20px rgba(95, 255, 245, 0.06),
-      0 8px 36px rgba(0, 50, 43, 0.18),
-      0 16px 52px rgba(0, 50, 43, 0.12);
+    backdrop-filter: blur(26px) saturate(1.18) brightness(1.11);
   }
 }
 
-/* Apply animations */
+/* Apply breathing animations */
 .stone-engraved {
-  animation: serene-glow 40s ease-in-out infinite;
+  animation: carved-glow 42s ease-in-out infinite;
 }
 
 .stone-button {
-  animation: serene-shimmer 32s ease-in-out infinite;
+  animation: raised-shimmer 36s ease-in-out infinite;
 }
 
 /* Legacy animations for compatibility */

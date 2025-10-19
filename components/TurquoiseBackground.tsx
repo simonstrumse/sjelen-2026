@@ -31,9 +31,12 @@ export default function TurquoiseBackground() {
         canvas.style("top", "0");
         canvas.style("left", "0");
         canvas.style("z-index", "0");
+        canvas.style("width", "100vw");
+        canvas.style("height", "100vh");
 
         p.colorMode(p.RGB, 255);
         p.noStroke();
+        p.noSmooth(); // Prevent anti-aliasing artifacts
 
         // Initialize
         p.randomSeed(params.seed);
@@ -47,10 +50,19 @@ export default function TurquoiseBackground() {
         const { cyanColor, baseColor, tealColor } = params;
 
         p.noStroke();
+        p.rectMode(p.CORNER);
 
-        const resolution = 8; // Larger blocks for better performance
-        for (let y = 0; y < p.height; y += resolution) {
-          for (let x = 0; x < p.width; x += resolution) {
+        const resolution = 6; // Smaller blocks for smoother result
+
+        // Ensure we cover the full canvas including edges - add extra column/row for safety
+        const cols = Math.ceil(p.width / resolution) + 1;
+        const rows = Math.ceil(p.height / resolution) + 1;
+
+        for (let row = 0; row < rows; row++) {
+          for (let col = 0; col < cols; col++) {
+            const x = col * resolution;
+            const y = row * resolution;
+
             // Sample from center of block
             const sampleX = x + resolution / 2;
             const sampleY = y + resolution / 2;
@@ -93,9 +105,9 @@ export default function TurquoiseBackground() {
               b = p.lerp(baseColor.b, tealColor.b, t * 0.4);
             }
 
-            // Draw rectangle
+            // Draw rectangle - add overlap to prevent any gaps
             p.fill(r, g, b);
-            p.rect(x, y, resolution, resolution);
+            p.rect(x, y, resolution + 1, resolution + 1);
           }
         }
       };

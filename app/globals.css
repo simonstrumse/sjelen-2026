@@ -49,8 +49,16 @@ body {
   border-radius: 4px;
   border: none;
   background:
-    linear-gradient(165deg, rgba(0, 70, 60, 0.35) 0%, rgba(0, 85, 72, 0.28) 45%, rgba(0, 95, 82, 0.22) 100%),
-    linear-gradient(180deg, rgba(0, 50, 43, 0.4) 0%, rgba(0, 75, 64, 0.25) 100%);
+    /* Stone grain texture - rough carved surface */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' seed='42'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23grain)' opacity='1'/%3E%3C/svg%3E"),
+    /* Subsurface scattering - cyan glow at edges */
+    radial-gradient(ellipse 140% 140% at 0% 0%, rgba(95, 255, 245, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 130% 130% at 100% 0%, rgba(95, 255, 245, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 120% 120% at 100% 100%, rgba(95, 255, 245, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 125% 125% at 0% 100%, rgba(95, 255, 245, 0.05) 0%, transparent 52%),
+    /* Cool shadows - blue-tinted darkness */
+    linear-gradient(165deg, rgba(0, 65, 58, 0.4) 0%, rgba(0, 80, 70, 0.32) 45%, rgba(0, 90, 78, 0.25) 100%),
+    linear-gradient(180deg, rgba(0, 45, 42, 0.45) 0%, rgba(0, 70, 62, 0.3) 100%);
   color: white;
   font-size: 1rem;
   letter-spacing: 0.08em;
@@ -61,25 +69,33 @@ body {
   width: 100%;
   /* Deep carving - light catches top inner edge, darkness at bottom */
   box-shadow:
-    /* Top inner highlight - light catching carved edge */
-    inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    inset 0 2px 1px rgba(175, 255, 250, 0.12),
-    /* Side inner highlights */
-    inset -1px 0 1px rgba(95, 255, 245, 0.08),
-    inset 1px 0 1px rgba(0, 40, 34, 0.25),
-    /* Deep shadow at bottom of carving */
-    inset 0 -1px 0 rgba(0, 25, 21, 0.8),
-    inset 0 -3px 2px rgba(0, 30, 26, 0.7),
-    /* Depth of carved depression */
-    inset 0 4px 12px rgba(0, 35, 30, 0.6),
-    inset -4px 6px 16px rgba(0, 40, 34, 0.5),
-    inset 4px 8px 20px rgba(0, 45, 38, 0.45),
-    inset 0 12px 28px rgba(0, 50, 43, 0.4),
-    /* Maximum depth at center */
-    inset -8px 16px 32px rgba(0, 55, 47, 0.35),
-    inset 8px 14px 28px rgba(0, 48, 41, 0.32),
+    /* Top inner highlight - warm white light catching carved edge */
+    inset 0 1px 0 rgba(255, 250, 240, 0.18),
+    inset 0 2px 1px rgba(255, 255, 250, 0.15),
+    inset 0 3px 2px rgba(175, 255, 250, 0.12),
+    /* Side inner highlights - beveled edge simulation */
+    inset -1px 0 2px rgba(95, 255, 245, 0.1),
+    inset 1px 0 2px rgba(0, 35, 32, 0.3),
+    /* Corner ambient occlusion - darker in corners */
+    inset -2px 2px 6px rgba(0, 20, 18, 0.7),
+    inset 2px 2px 6px rgba(0, 22, 20, 0.65),
+    inset -2px -2px 6px rgba(0, 18, 16, 0.75),
+    inset 2px -2px 6px rgba(0, 19, 17, 0.72),
+    /* Deep shadow at bottom of carving - cool blue-tinted */
+    inset 0 -1px 0 rgba(0, 22, 24, 0.85),
+    inset 0 -3px 2px rgba(0, 25, 28, 0.75),
+    inset 0 -5px 4px rgba(0, 28, 30, 0.65),
+    /* Depth of carved depression - cooler as it goes deeper */
+    inset 0 4px 12px rgba(0, 30, 32, 0.65),
+    inset -4px 6px 16px rgba(0, 35, 36, 0.55),
+    inset 4px 8px 20px rgba(0, 40, 40, 0.5),
+    inset 0 12px 28px rgba(0, 45, 45, 0.45),
+    /* Maximum depth at center - coldest, darkest point */
+    inset -8px 16px 32px rgba(0, 50, 50, 0.4),
+    inset 8px 14px 28px rgba(0, 45, 46, 0.38),
+    inset 0 20px 36px rgba(0, 40, 44, 0.35),
     /* Outer subtle glow from surface */
-    0 1px 2px rgba(95, 255, 245, 0.06);
+    0 1px 2px rgba(95, 255, 245, 0.08);
   backdrop-filter: blur(20px) saturate(0.85) brightness(0.75);
   transition: all 280ms cubic-bezier(0.4, 0, 0.2, 1);
   text-shadow:
@@ -132,8 +148,15 @@ body {
   border-radius: 3px;
   border: none;
   background:
-    linear-gradient(175deg, rgba(4, 180, 156, 0.18) 0%, rgba(3, 145, 125, 0.22) 48%, rgba(2, 115, 99, 0.28) 100%),
-    linear-gradient(180deg, rgba(95, 255, 245, 0.12) 0%, rgba(3, 211, 177, 0.15) 35%, rgba(2, 157, 134, 0.18) 100%);
+    /* Polished stone texture - fine grain */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100'%3E%3Cfilter id='polish'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' seed='88'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='100' filter='url(%23polish)' opacity='1'/%3E%3C/svg%3E"),
+    /* Subsurface scattering - internal glow */
+    radial-gradient(ellipse 120% 100% at 50% 0%, rgba(175, 255, 250, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 100% 80% at 0% 50%, rgba(95, 255, 245, 0.1) 0%, transparent 55%),
+    radial-gradient(ellipse 100% 80% at 100% 50%, rgba(95, 255, 245, 0.08) 0%, transparent 50%),
+    /* Warm highlights on raised surface */
+    linear-gradient(175deg, rgba(4, 190, 164, 0.22) 0%, rgba(3, 155, 133, 0.26) 48%, rgba(2, 125, 107, 0.32) 100%),
+    linear-gradient(180deg, rgba(95, 255, 245, 0.14) 0%, rgba(3, 211, 177, 0.18) 35%, rgba(2, 157, 134, 0.22) 100%);
   color: white;
   text-transform: uppercase;
   letter-spacing: 0.16em;
@@ -141,31 +164,37 @@ body {
   padding: 1rem 1.5rem;
   /* Raised slab - light on top, shadow underneath */
   box-shadow:
-    /* Top surface highlights - flat plane catching light */
-    inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    inset 0 2px 0 rgba(175, 255, 250, 0.3),
-    inset 0 3px 2px rgba(95, 255, 245, 0.2),
-    /* Side edge highlights */
-    inset -1px 0 1px rgba(95, 255, 245, 0.15),
-    inset 1px 0 1px rgba(0, 85, 72, 0.2),
+    /* Top surface highlights - warm light catching flat plane */
+    inset 0 1px 0 rgba(255, 250, 235, 0.45),
+    inset 0 2px 0 rgba(255, 255, 245, 0.35),
+    inset 0 3px 2px rgba(175, 255, 250, 0.25),
+    inset 0 4px 3px rgba(255, 255, 250, 0.15),
+    /* Side edge highlights - beveled light catches */
+    inset -1px 0 2px rgba(95, 255, 245, 0.18),
+    inset 1px 0 2px rgba(0, 80, 68, 0.25),
+    inset 0 0 4px rgba(255, 255, 245, 0.12),
     /* Inner light scattering on top surface */
-    inset -3px 4px 8px rgba(175, 255, 250, 0.12),
-    inset 3px 5px 10px rgba(255, 255, 255, 0.08),
-    /* Bottom edge darkness (thickness of slab) */
-    inset 0 -1px 0 rgba(0, 40, 34, 0.75),
-    inset 0 -2px 1px rgba(0, 45, 38, 0.65),
-    inset 0 -6px 12px rgba(0, 50, 43, 0.4),
-    /* Deep bottom internal shadow */
-    inset -6px -10px 20px rgba(0, 55, 47, 0.28),
-    inset 6px -8px 16px rgba(0, 50, 43, 0.25),
+    inset -3px 4px 8px rgba(175, 255, 250, 0.14),
+    inset 3px 5px 10px rgba(255, 255, 240, 0.1),
+    /* Bottom edge darkness (thickness of slab) - cool shadows */
+    inset 0 -1px 0 rgba(0, 35, 38, 0.8),
+    inset 0 -2px 1px rgba(0, 40, 42, 0.7),
+    inset 0 -6px 12px rgba(0, 45, 46, 0.45),
+    /* Deep bottom internal shadow - blue-tinted */
+    inset -6px -10px 20px rgba(0, 50, 52, 0.32),
+    inset 6px -8px 16px rgba(0, 48, 50, 0.28),
+    /* CONTACT SHADOW - tight dark shadow at base */
+    0 0 1px 0.5px rgba(0, 20, 22, 0.9),
+    0 1px 2px rgba(0, 25, 28, 0.85),
+    /* Near shadow - where slab is close to surface */
+    0 2px 4px rgba(0, 30, 32, 0.4),
+    0 3px 6px rgba(0, 35, 36, 0.35),
     /* Cast shadow beneath raised slab */
-    0 1px 2px rgba(0, 35, 30, 0.3),
-    0 2px 4px rgba(0, 40, 34, 0.28),
-    0 4px 8px rgba(0, 45, 38, 0.25),
-    0 8px 16px rgba(0, 50, 43, 0.22),
-    0 12px 24px rgba(0, 55, 47, 0.18),
-    0 20px 40px rgba(0, 50, 43, 0.15),
-    0 32px 64px rgba(0, 48, 41, 0.12);
+    0 4px 8px rgba(0, 40, 42, 0.3),
+    0 8px 16px rgba(0, 45, 46, 0.25),
+    0 12px 24px rgba(0, 50, 50, 0.2),
+    0 20px 40px rgba(0, 48, 48, 0.16),
+    0 32px 64px rgba(0, 45, 46, 0.12);
   backdrop-filter: blur(24px) saturate(1.15) brightness(1.08);
   transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
   text-shadow:
@@ -174,21 +203,27 @@ body {
     0 -1px 0 rgba(255, 255, 255, 0.15);
 }
 
-/* Top surface lighting effect */
+/* Top surface lighting effect + specular highlight */
 .stone-button::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 40%;
+  height: 50%;
   border-radius: 3px 3px 0 0;
   background:
-    radial-gradient(ellipse 70% 100% at 35% 0%, rgba(255, 255, 255, 0.25) 0%, transparent 65%),
-    radial-gradient(ellipse 60% 100% at 65% 0%, rgba(175, 255, 250, 0.18) 0%, transparent 60%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(175, 255, 250, 0.12) 50%, transparent 100%);
+    /* SPECULAR HIGHLIGHT - sharp polished spot (30% from left) */
+    radial-gradient(ellipse 25% 60% at 30% 10%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 245, 0.3) 30%, transparent 70%),
+    /* Secondary specular (softer, 65% from left) */
+    radial-gradient(ellipse 20% 50% at 65% 15%, rgba(255, 255, 250, 0.35) 0%, rgba(175, 255, 250, 0.18) 35%, transparent 65%),
+    /* Overall top light wash */
+    radial-gradient(ellipse 80% 100% at 50% 0%, rgba(255, 255, 245, 0.28) 0%, rgba(175, 255, 250, 0.14) 40%, transparent 75%),
+    linear-gradient(180deg, rgba(255, 255, 240, 0.25) 0%, rgba(175, 255, 250, 0.15) 40%, transparent 100%);
   pointer-events: none;
-  opacity: 0.7;
+  opacity: 0.75;
+  mix-blend-mode: screen;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Bottom edge shadow detail */
@@ -207,11 +242,20 @@ body {
   opacity: 0.6;
 }
 
-/* Hover - slab catches more light */
+/* Hover - slab catches more light + subtle 3D tilt */
 .stone-button:hover {
+  /* Subtle perspective tilt - button slightly tilts toward cursor */
+  transform: perspective(1000px) rotateX(-0.5deg) translateY(-1px);
   background:
-    linear-gradient(175deg, rgba(4, 195, 168, 0.22) 0%, rgba(3, 155, 133, 0.26) 48%, rgba(2, 125, 107, 0.32) 100%),
-    linear-gradient(180deg, rgba(95, 255, 245, 0.16) 0%, rgba(3, 211, 177, 0.18) 35%, rgba(2, 157, 134, 0.22) 100%);
+    /* Texture remains */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100'%3E%3Cfilter id='polish'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' seed='88'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='100' filter='url(%23polish)' opacity='1'/%3E%3C/svg%3E"),
+    /* Brighter subsurface scattering */
+    radial-gradient(ellipse 130% 110% at 50% 0%, rgba(175, 255, 250, 0.18) 0%, transparent 65%),
+    radial-gradient(ellipse 110% 85% at 0% 50%, rgba(95, 255, 245, 0.12) 0%, transparent 58%),
+    radial-gradient(ellipse 110% 85% at 100% 50%, rgba(95, 255, 245, 0.1) 0%, transparent 55%),
+    /* Warmer, brighter surface */
+    linear-gradient(175deg, rgba(4, 205, 176, 0.26) 0%, rgba(3, 165, 141, 0.3) 48%, rgba(2, 135, 115, 0.36) 100%),
+    linear-gradient(180deg, rgba(95, 255, 245, 0.18) 0%, rgba(3, 211, 177, 0.22) 35%, rgba(2, 157, 134, 0.26) 100%);
   box-shadow:
     /* Enhanced top highlights */
     inset 0 1px 0 rgba(255, 255, 255, 0.5),
@@ -241,12 +285,32 @@ body {
   backdrop-filter: blur(26px) saturate(1.2) brightness(1.12);
 }
 
+/* Specular highlight shifts on hover - simulates viewing angle change */
+.stone-button:hover::before {
+  background:
+    /* MOVED SPECULAR - shifts right and intensifies */
+    radial-gradient(ellipse 28% 65% at 38% 8%, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 245, 0.4) 25%, transparent 65%),
+    /* Secondary also shifts */
+    radial-gradient(ellipse 22% 55% at 72% 12%, rgba(255, 255, 250, 0.45) 0%, rgba(175, 255, 250, 0.22) 30%, transparent 60%),
+    /* Brighter overall wash */
+    radial-gradient(ellipse 85% 105% at 50% 0%, rgba(255, 255, 245, 0.32) 0%, rgba(175, 255, 250, 0.18) 35%, transparent 70%),
+    linear-gradient(180deg, rgba(255, 255, 240, 0.3) 0%, rgba(175, 255, 250, 0.18) 35%, transparent 100%);
+  opacity: 0.85;
+}
+
 /* Active - slab pressed down into surface */
 .stone-button:active {
-  transform: translateY(3px);
+  transform: perspective(1000px) rotateX(0.5deg) translateY(3px);
   background:
-    linear-gradient(175deg, rgba(4, 160, 138, 0.15) 0%, rgba(3, 130, 112, 0.18) 48%, rgba(2, 100, 86, 0.24) 100%),
-    linear-gradient(180deg, rgba(95, 255, 245, 0.08) 0%, rgba(3, 211, 177, 0.12) 35%, rgba(2, 157, 134, 0.15) 100%);
+    /* Texture remains visible when pressed */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100'%3E%3Cfilter id='polish'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' seed='88'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='100' filter='url(%23polish)' opacity='1'/%3E%3C/svg%3E"),
+    /* Dimmer subsurface scattering when pressed */
+    radial-gradient(ellipse 110% 90% at 50% 0%, rgba(175, 255, 250, 0.1) 0%, transparent 55%),
+    radial-gradient(ellipse 90% 70% at 0% 50%, rgba(95, 255, 245, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 90% 70% at 100% 50%, rgba(95, 255, 245, 0.05) 0%, transparent 48%),
+    /* Darker when pressed */
+    linear-gradient(175deg, rgba(4, 170, 146, 0.18) 0%, rgba(3, 138, 118, 0.22) 48%, rgba(2, 108, 93, 0.28) 100%),
+    linear-gradient(180deg, rgba(95, 255, 245, 0.1) 0%, rgba(3, 211, 177, 0.14) 35%, rgba(2, 157, 134, 0.18) 100%);
   box-shadow:
     /* Reduced top highlights when pressed */
     inset 0 1px 0 rgba(255, 255, 255, 0.25),
@@ -264,11 +328,14 @@ body {
     inset 0 -6px 10px rgba(0, 45, 38, 0.5),
     inset -5px -8px 16px rgba(0, 50, 43, 0.38),
     inset 5px -6px 12px rgba(0, 48, 41, 0.35),
-    /* Minimal shadow when pressed */
-    0 1px 2px rgba(0, 30, 26, 0.25),
-    0 2px 4px rgba(0, 35, 30, 0.22),
-    0 4px 8px rgba(0, 40, 34, 0.18),
-    0 8px 16px rgba(0, 45, 38, 0.15);
+    /* STRONGER CONTACT SHADOW when pressed down */
+    0 0 0 1px rgba(0, 15, 18, 0.95),
+    0 0.5px 1px rgba(0, 20, 22, 0.9),
+    /* Compressed shadows - very close to surface */
+    0 1px 2px rgba(0, 25, 28, 0.5),
+    0 2px 4px rgba(0, 30, 32, 0.35),
+    0 4px 8px rgba(0, 35, 36, 0.25),
+    0 6px 12px rgba(0, 40, 40, 0.18);
   backdrop-filter: blur(20px) saturate(1.08) brightness(0.95);
 }
 

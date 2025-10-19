@@ -45,6 +45,19 @@ body {
     radial-gradient(ellipse 700px 800px at 80% 25%, rgba(0, 255, 247, 0.12) 0%, transparent 45%),
     radial-gradient(ellipse 1000px 1000px at 50% 50%, #029d86 0%, #03d3b1 40%, #04ccb2 60%, #029d86 100%);
   background-size: 100% 100%;
+  animation: dramatic-wave 2s ease-in-out infinite alternate;
+  filter: hue-rotate(0deg);
+}
+
+@keyframes dramatic-wave {
+  0% {
+    background-position: 0% 0%, 100% 0%, 50% 50%;
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    background-position: 50% 30%, 50% 70%, 50% 50%;
+    filter: hue-rotate(15deg);
+  }
 }
 
 /* ENGRAVED INPUT - Deep carved depression in stone */

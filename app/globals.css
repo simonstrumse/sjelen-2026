@@ -28,113 +28,24 @@ body {
 .stone-surface {
   position: relative;
   isolation: isolate;
-  background:
-    radial-gradient(ellipse 85% 75% at 22% 18%, rgba(95, 255, 245, 0.32) 0%, rgba(3, 211, 177, 0.18) 25%, transparent 58%),
-    radial-gradient(ellipse 70% 80% at 78% 22%, rgba(0, 255, 247, 0.22) 0%, rgba(3, 211, 177, 0.12) 28%, transparent 52%),
-    radial-gradient(ellipse 90% 95% at 65% 12%, rgba(175, 255, 250, 0.15) 0%, transparent 45%),
-    radial-gradient(ellipse 110% 120% at 50% 50%, rgba(2, 157, 134, 1) 0%, rgba(3, 211, 177, 1) 35%, rgba(4, 204, 178, 1) 65%, rgba(2, 157, 134, 1) 100%),
-    linear-gradient(160deg, rgba(0, 120, 102, 0.4) 0%, rgba(0, 95, 82, 0.2) 30%, rgba(0, 110, 95, 0.3) 70%, rgba(0, 90, 77, 0.35) 100%),
-    linear-gradient(180deg, #029d86 0%, #03d3b1 50%, #029d86 100%);
+  background: var(--turquoise);
   overflow: hidden;
-}
-
-.stone-surface::before {
-  content: "";
-  position: absolute;
-  inset: -30%;
-  background:
-    radial-gradient(ellipse 60% 50% at 18% 15%, rgba(175, 255, 250, 0.28) 0%, rgba(95, 255, 245, 0.12) 35%, transparent 58%),
-    radial-gradient(ellipse 55% 60% at 82% 18%, rgba(95, 255, 245, 0.22) 0%, rgba(0, 255, 247, 0.08) 32%, transparent 52%),
-    radial-gradient(ellipse 40% 45% at 45% 25%, rgba(255, 255, 255, 0.18) 0%, transparent 48%),
-    radial-gradient(ellipse 100% 80% at 50% 85%, rgba(0, 65, 55, 0.3) 0%, rgba(0, 50, 43, 0.18) 40%, transparent 65%),
-    radial-gradient(ellipse 70% 90% at 30% 70%, rgba(0, 70, 60, 0.25) 0%, transparent 55%),
-    radial-gradient(ellipse 65% 75% at 75% 80%, rgba(0, 60, 51, 0.22) 0%, transparent 50%),
-    repeating-linear-gradient(128deg, rgba(95, 255, 245, 0.03) 0 1.5px, transparent 1.5px 8px),
-    repeating-linear-gradient(52deg, rgba(0, 50, 43, 0.04) 0 1.5px, transparent 1.5px 7px),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cfilter id='turb'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.02 0.015' numOctaves='4' seed='8'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23turb)' opacity='1'/%3E%3C/svg%3E");
-  mix-blend-mode: overlay;
-  opacity: 0.75;
-  pointer-events: none;
-  filter: blur(0.4px);
-  animation: slow-shift 120s ease-in-out infinite alternate;
-}
-
-.stone-surface::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='5' seed='12'/%3E%3C/filter%3E%3Crect width='800' height='800' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E"),
-    radial-gradient(ellipse 120% 100% at 50% 0%, rgba(95, 255, 245, 0.06) 0%, transparent 55%),
-    radial-gradient(ellipse 100% 90% at 50% 100%, rgba(0, 40, 34, 0.35) 0%, transparent 60%),
-    linear-gradient(180deg, rgba(0, 255, 247, 0.03) 0%, transparent 30%, transparent 70%, rgba(0, 35, 30, 0.15) 100%);
-  mix-blend-mode: overlay;
-  opacity: 0.5;
-  pointer-events: none;
-}
-
-@keyframes slow-shift {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  100% {
-    transform: translate(-2%, -1.5%) scale(1.02);
-  }
 }
 
 .stone-engraved {
   position: relative;
   isolation: isolate;
-  border-radius: 4px;
-  border-top: 1px solid rgba(175, 255, 250, 0.3);
-  border-left: 1px solid rgba(95, 255, 245, 0.15);
-  border-right: 1px solid rgba(0, 65, 55, 0.3);
-  border-bottom: 1px solid rgba(0, 50, 43, 0.35);
-  background:
-    radial-gradient(ellipse 110% 70% at 50% -10%, rgba(175, 255, 250, 0.14) 0%, transparent 60%),
-    radial-gradient(ellipse 100% 80% at 50% 110%, rgba(0, 95, 82, 0.12) 0%, transparent 55%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(3, 211, 177, 0.18) 35%, rgba(2, 157, 134, 0.15) 70%, rgba(0, 82, 70, 0.2) 100%),
-    linear-gradient(135deg, rgba(95, 255, 245, 0.08) 0%, rgba(3, 211, 177, 0.12) 100%);
+  border-radius: 6px;
+  border: none;
+  background: rgba(255, 255, 255, 0.06);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    inset 0 2px 8px rgba(255, 255, 255, 0.15),
-    inset -1px 0 2px rgba(95, 255, 245, 0.1),
-    inset 1px 0 2px rgba(0, 65, 55, 0.12),
-    inset 0 -1px 0 rgba(0, 50, 43, 0.35),
-    inset 0 -4px 12px rgba(0, 65, 55, 0.18),
-    0 1px 2px rgba(95, 255, 245, 0.15),
-    0 4px 12px rgba(0, 95, 82, 0.2);
-  backdrop-filter: blur(32px) saturate(1.1) brightness(1.15);
-  transition: all 240ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.stone-engraved::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, rgba(175, 255, 250, 0) 0%, rgba(255, 255, 255, 0.35) 50%, rgba(175, 255, 250, 0) 100%);
-  opacity: 0.7;
-  pointer-events: none;
-  filter: blur(0.5px);
-  mix-blend-mode: overlay;
-  border-radius: 4px 4px 0 0;
-}
-
-.stone-engraved::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 4px;
-  background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 120'%3E%3Cfilter id='glass'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' seed='25'/%3E%3C/filter%3E%3Crect width='400' height='120' filter='url(%23glass)' opacity='1'/%3E%3C/svg%3E"),
-    radial-gradient(ellipse 100% 90% at 50% -5%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
-    linear-gradient(180deg, rgba(95, 255, 245, 0.04) 0%, transparent 50%, rgba(0, 50, 43, 0.08) 100%);
-  opacity: 0.35;
-  pointer-events: none;
-  mix-blend-mode: overlay;
+    inset 0 2px 4px rgba(0, 0, 0, 0.1),
+    inset 0 -2px 4px rgba(255, 255, 255, 0.05),
+    inset 0 8px 24px rgba(0, 50, 43, 0.2),
+    0 4px 16px rgba(0, 50, 43, 0.15),
+    0 8px 32px rgba(0, 50, 43, 0.1);
+  backdrop-filter: blur(40px) saturate(1.2) brightness(0.95);
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .stone-engraved input {
@@ -163,156 +74,65 @@ body {
 }
 
 .stone-engraved:focus-within {
-  border-top: 1px solid rgba(175, 255, 250, 0.45);
-  border-left: 1px solid rgba(95, 255, 245, 0.25);
-  border-right: 1px solid rgba(0, 65, 55, 0.35);
-  border-bottom: 1px solid rgba(0, 50, 43, 0.4);
-  background:
-    radial-gradient(ellipse 115% 75% at 50% -15%, rgba(175, 255, 250, 0.2) 0%, transparent 65%),
-    radial-gradient(ellipse 105% 85% at 50% 115%, rgba(0, 100, 85, 0.15) 0%, transparent 60%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(3, 211, 177, 0.24) 32%, rgba(2, 157, 134, 0.2) 68%, rgba(0, 85, 72, 0.24) 100%),
-    linear-gradient(135deg, rgba(95, 255, 245, 0.12) 0%, rgba(3, 211, 177, 0.16) 100%);
+  background: rgba(255, 255, 255, 0.09);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    inset 0 3px 10px rgba(255, 255, 255, 0.2),
-    inset -1px 0 3px rgba(95, 255, 245, 0.15),
-    inset 1px 0 3px rgba(0, 65, 55, 0.15),
-    inset 0 -1px 0 rgba(0, 50, 43, 0.4),
-    inset 0 -6px 14px rgba(0, 70, 60, 0.22),
-    0 0 0 1px rgba(95, 255, 245, 0.25),
-    0 1px 3px rgba(95, 255, 245, 0.2),
-    0 4px 16px rgba(95, 255, 245, 0.12),
-    0 6px 18px rgba(0, 95, 82, 0.25);
-  backdrop-filter: blur(36px) saturate(1.15) brightness(1.25);
+    inset 0 2px 6px rgba(0, 0, 0, 0.12),
+    inset 0 -2px 6px rgba(255, 255, 255, 0.08),
+    inset 0 8px 24px rgba(0, 50, 43, 0.25),
+    0 0 0 2px rgba(95, 255, 245, 0.15),
+    0 4px 20px rgba(95, 255, 245, 0.1),
+    0 8px 40px rgba(0, 50, 43, 0.2);
+  backdrop-filter: blur(44px) saturate(1.3) brightness(1.05);
 }
 
 .stone-button {
   position: relative;
   isolation: isolate;
-  border-radius: 3px;
-  border-top: 0.5px solid rgba(95, 255, 245, 0.12);
-  border-left: 1px solid rgba(95, 255, 245, 0.06);
-  border-right: 1px solid rgba(0, 61, 52, 0.35);
-  border-bottom: 0.5px solid rgba(0, 50, 43, 0.5);
-  background:
-    radial-gradient(ellipse 120% 80% at 28% 22%, rgba(95, 255, 245, 0.11) 0%, transparent 45%),
-    radial-gradient(ellipse 90% 70% at 72% 18%, rgba(0, 255, 247, 0.08) 0%, transparent 42%),
-    linear-gradient(135deg, rgba(3, 211, 177, 0.25) 0%, rgba(3, 211, 177, 0.08) 35%, rgba(2, 157, 134, 0.15) 65%, rgba(0, 82, 70, 0.42) 100%),
-    linear-gradient(180deg, rgba(0, 95, 82, 0.18) 0%, rgba(0, 61, 52, 0.32) 100%);
+  border-radius: 6px;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
   color: white;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-weight: 600;
-  padding: 0.9rem 1.35rem;
+  padding: 1rem 1.5rem;
   box-shadow:
-    inset 0 0.5px 0 rgba(175, 255, 250, 0.35),
-    inset -1px 0 1px rgba(95, 255, 245, 0.08),
-    inset 1px 0 1px rgba(0, 50, 43, 0.25),
-    inset 0 2px 0 rgba(95, 255, 245, 0.18),
-    inset -2px 3px 8px rgba(95, 255, 245, 0.12),
-    inset 3px 4px 10px rgba(255, 255, 255, 0.06),
-    inset 0 -1px 0 rgba(0, 35, 30, 0.8),
-    inset 0 -2px 1px rgba(0, 40, 34, 0.65),
-    inset 0 -8px 16px rgba(0, 48, 41, 0.45),
-    inset -6px -10px 20px rgba(0, 50, 43, 0.35),
-    inset 6px -6px 14px rgba(0, 45, 38, 0.28),
-    0 0.5px 1px rgba(0, 30, 26, 0.25),
-    0 1px 2px rgba(0, 40, 34, 0.22),
-    0 3px 6px rgba(0, 50, 43, 0.3),
-    0 8px 16px rgba(0, 55, 47, 0.35),
-    0 16px 32px rgba(0, 50, 43, 0.28),
-    0 24px 48px rgba(0, 48, 41, 0.18);
-  backdrop-filter: blur(24px) saturate(1.15);
-  transition: all 220ms cubic-bezier(0.4, 0, 0.2, 1);
+    inset 0 2px 4px rgba(255, 255, 255, 0.1),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.15),
+    inset 0 -12px 32px rgba(0, 50, 43, 0.3),
+    0 4px 16px rgba(0, 50, 43, 0.2),
+    0 8px 32px rgba(0, 50, 43, 0.15),
+    0 16px 48px rgba(0, 50, 43, 0.1);
+  backdrop-filter: blur(32px) saturate(1.2) brightness(0.9);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   text-shadow:
-    0 1px 2px rgba(0, 50, 43, 0.35),
-    0 2px 8px rgba(0, 40, 34, 0.25);
-}
-
-.stone-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background:
-    radial-gradient(ellipse 60% 100% at 32% 50%, rgba(175, 255, 250, 0.55) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 100% at 68% 50%, rgba(95, 255, 245, 0.35) 0%, transparent 65%),
-    linear-gradient(90deg, rgba(95, 255, 245, 0) 0%, rgba(175, 255, 250, 0.28) 25%, rgba(255, 255, 255, 0.35) 50%, rgba(175, 255, 250, 0.28) 75%, rgba(95, 255, 245, 0) 100%);
-  opacity: 0.85;
-  pointer-events: none;
-  filter: blur(0.3px);
-  mix-blend-mode: overlay;
-}
-
-.stone-button::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 3px;
-  background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 80'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' seed='2'/%3E%3C/filter%3E%3Crect width='300' height='80' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"),
-    radial-gradient(ellipse 100% 120% at 50% -10%, rgba(0, 255, 247, 0.04) 0%, transparent 50%),
-    radial-gradient(ellipse 80% 100% at 50% 110%, rgba(0, 35, 30, 0.3) 0%, transparent 60%);
-  opacity: 0.4;
-  pointer-events: none;
-  mix-blend-mode: overlay;
+    0 2px 4px rgba(0, 50, 43, 0.4),
+    0 4px 12px rgba(0, 40, 34, 0.3);
 }
 
 .stone-button:hover {
-  background:
-    radial-gradient(ellipse 130% 85% at 26% 20%, rgba(95, 255, 245, 0.16) 0%, transparent 48%),
-    radial-gradient(ellipse 95% 75% at 74% 16%, rgba(0, 255, 247, 0.11) 0%, transparent 45%),
-    linear-gradient(135deg, rgba(3, 211, 177, 0.32) 0%, rgba(3, 211, 177, 0.12) 32%, rgba(2, 157, 134, 0.22) 68%, rgba(0, 85, 72, 0.48) 100%),
-    linear-gradient(180deg, rgba(0, 100, 85, 0.22) 0%, rgba(0, 65, 55, 0.36) 100%);
+  background: rgba(255, 255, 255, 0.12);
   box-shadow:
-    inset 0 0.5px 0 rgba(175, 255, 250, 0.45),
-    inset -1px 0 1px rgba(95, 255, 245, 0.12),
-    inset 1px 0 1px rgba(0, 50, 43, 0.28),
-    inset 0 2px 0 rgba(95, 255, 245, 0.25),
-    inset -2px 3px 10px rgba(95, 255, 245, 0.16),
-    inset 3px 5px 12px rgba(255, 255, 255, 0.08),
-    inset 0 -1px 0 rgba(0, 35, 30, 0.85),
-    inset 0 -2px 1px rgba(0, 40, 34, 0.7),
-    inset 0 -10px 18px rgba(0, 50, 43, 0.5),
-    inset -7px -12px 22px rgba(0, 52, 45, 0.38),
-    inset 7px -8px 16px rgba(0, 48, 40, 0.32),
-    0 0.5px 1px rgba(0, 30, 26, 0.28),
-    0 1px 2px rgba(0, 40, 34, 0.25),
-    0 4px 8px rgba(0, 52, 45, 0.32),
-    0 10px 20px rgba(0, 58, 49, 0.38),
-    0 20px 36px rgba(0, 52, 45, 0.32),
-    0 28px 56px rgba(0, 50, 43, 0.22);
-  backdrop-filter: blur(26px) saturate(1.2);
+    inset 0 2px 6px rgba(255, 255, 255, 0.15),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.2),
+    inset 0 -12px 32px rgba(0, 50, 43, 0.35),
+    0 0 0 2px rgba(95, 255, 245, 0.12),
+    0 4px 20px rgba(95, 255, 245, 0.08),
+    0 8px 40px rgba(0, 50, 43, 0.2),
+    0 16px 56px rgba(0, 50, 43, 0.15);
+  backdrop-filter: blur(36px) saturate(1.3) brightness(0.95);
 }
 
 .stone-button:active {
   transform: translateY(2px);
-  background:
-    radial-gradient(ellipse 110% 75% at 30% 25%, rgba(95, 255, 245, 0.08) 0%, transparent 42%),
-    radial-gradient(ellipse 85% 65% at 70% 22%, rgba(0, 255, 247, 0.06) 0%, transparent 38%),
-    linear-gradient(135deg, rgba(3, 211, 177, 0.18) 0%, rgba(3, 211, 177, 0.06) 38%, rgba(2, 157, 134, 0.12) 62%, rgba(0, 75, 64, 0.38) 100%),
-    linear-gradient(180deg, rgba(0, 85, 72, 0.15) 0%, rgba(0, 55, 47, 0.28) 100%);
+  background: rgba(255, 255, 255, 0.06);
   box-shadow:
-    inset 0 0.5px 0 rgba(175, 255, 250, 0.25),
-    inset -1px 0 1px rgba(95, 255, 245, 0.05),
-    inset 1px 0 1px rgba(0, 45, 38, 0.22),
-    inset 0 1px 0 rgba(95, 255, 245, 0.12),
-    inset -1px 2px 6px rgba(95, 255, 245, 0.08),
-    inset 2px 3px 8px rgba(255, 255, 255, 0.04),
-    inset 0 -0.5px 0 rgba(0, 30, 26, 0.75),
-    inset 0 -1px 1px rgba(0, 35, 30, 0.6),
-    inset 0 -6px 12px rgba(0, 45, 38, 0.42),
-    inset -5px -8px 16px rgba(0, 48, 41, 0.32),
-    inset 5px -5px 12px rgba(0, 43, 36, 0.25),
-    0 0.5px 1px rgba(0, 25, 22, 0.2),
-    0 1px 2px rgba(0, 35, 30, 0.18),
-    0 2px 4px rgba(0, 45, 38, 0.25),
-    0 4px 10px rgba(0, 50, 43, 0.3),
-    0 10px 20px rgba(0, 48, 41, 0.24),
-    0 16px 32px rgba(0, 45, 38, 0.16);
-  backdrop-filter: blur(22px) saturate(1.1);
+    inset 0 2px 4px rgba(0, 0, 0, 0.2),
+    inset 0 -2px 4px rgba(255, 255, 255, 0.05),
+    inset 0 -8px 24px rgba(0, 50, 43, 0.4),
+    0 2px 8px rgba(0, 50, 43, 0.2),
+    0 4px 16px rgba(0, 50, 43, 0.15);
+  backdrop-filter: blur(28px) saturate(1.1) brightness(0.85);
 }
 
 .stone-button:disabled {
@@ -322,172 +142,59 @@ body {
 
 
 /* ========================================
-   SERENE LIGHTING ANIMATION SYSTEM
-   Multi-layered breathing light across stone surface
+   SERENE ANIMATION SYSTEM
+   Subtle breathing effects for glassmorphism elements
    ======================================== */
 
-/* Primary light source - slow drift across surface */
-@keyframes serene-light-drift {
-  0% {
-    background-position: 22% 18%, 78% 22%, 65% 12%, 50% 50%, 0% 0%, 0% 0%;
-    filter: brightness(1) saturate(1);
-  }
-  33% {
-    background-position: 28% 25%, 72% 28%, 58% 18%, 50% 50%, 0% 0%, 0% 0%;
-    filter: brightness(1.03) saturate(1.05);
-  }
-  66% {
-    background-position: 18% 22%, 82% 18%, 70% 15%, 50% 50%, 0% 0%, 0% 0%;
-    filter: brightness(0.98) saturate(0.98);
-  }
-  100% {
-    background-position: 22% 18%, 78% 22%, 65% 12%, 50% 50%, 0% 0%, 0% 0%;
-    filter: brightness(1) saturate(1);
-  }
-}
-
-/* Ambient overlay - breathing opacity shifts */
-@keyframes serene-ambient-breath {
-  0% {
-    opacity: 0.75;
-    filter: blur(0.4px) brightness(1);
-  }
-  25% {
-    opacity: 0.68;
-    filter: blur(0.5px) brightness(1.04);
-  }
-  50% {
-    opacity: 0.82;
-    filter: blur(0.3px) brightness(0.97);
-  }
-  75% {
-    opacity: 0.71;
-    filter: blur(0.45px) brightness(1.02);
-  }
-  100% {
-    opacity: 0.75;
-    filter: blur(0.4px) brightness(1);
-  }
-}
-
-/* Texture layer - subtle shift for living stone */
-@keyframes serene-texture-shift {
-  0% {
-    opacity: 0.5;
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    opacity: 0.58;
-    transform: translate(0.5%, 0.3%) scale(1.01);
-  }
-  100% {
-    opacity: 0.5;
-    transform: translate(0, 0) scale(1);
-  }
-}
-
-/* Button highlight - gentle shimmer */
-@keyframes serene-button-shimmer {
-  0% {
-    background-position: 28% 22%, 72% 18%, 0% 0%, 0% 0%;
-    filter: brightness(1) saturate(1.15);
-  }
-  40% {
-    background-position: 32% 28%, 68% 22%, 0% 0%, 0% 0%;
-    filter: brightness(1.05) saturate(1.2);
-  }
-  70% {
-    background-position: 25% 20%, 75% 16%, 0% 0%, 0% 0%;
-    filter: brightness(0.98) saturate(1.12);
-  }
-  100% {
-    background-position: 28% 22%, 72% 18%, 0% 0%, 0% 0%;
-    filter: brightness(1) saturate(1.15);
-  }
-}
-
-/* Input field - subtle internal glow pulse */
-@keyframes serene-input-glow {
-  0% {
+/* Gentle glow pulse for form elements */
+@keyframes serene-glow {
+  0%, 100% {
     box-shadow:
-      inset 0 0.5px 1px rgba(0, 35, 30, 0.75),
-      inset 0 1px 0 rgba(0, 40, 34, 0.65),
-      inset -1px 0 1px rgba(0, 45, 38, 0.35),
-      inset 1px 0 1px rgba(0, 50, 43, 0.25),
-      inset 0 3px 6px rgba(0, 40, 34, 0.55),
-      inset -3px 4px 10px rgba(0, 45, 38, 0.45),
-      inset 3px 5px 12px rgba(0, 48, 41, 0.38),
-      inset 0 10px 20px rgba(0, 50, 43, 0.35),
-      inset -8px 12px 24px rgba(0, 55, 47, 0.28),
-      inset 8px 10px 20px rgba(0, 52, 45, 0.25),
-      inset 0 -1px 0 rgba(95, 255, 245, 0.12),
-      inset 0 -2px 1px rgba(175, 255, 250, 0.08),
-      inset 0 -6px 12px rgba(95, 255, 245, 0.06),
-      inset -6px -8px 16px rgba(0, 255, 247, 0.04),
-      0 1px 2px rgba(95, 255, 245, 0.08);
-    backdrop-filter: blur(28px) saturate(0.92) brightness(0.88);
+      inset 0 2px 4px rgba(0, 0, 0, 0.1),
+      inset 0 -2px 4px rgba(255, 255, 255, 0.05),
+      inset 0 8px 24px rgba(0, 50, 43, 0.2),
+      0 4px 16px rgba(0, 50, 43, 0.15),
+      0 8px 32px rgba(0, 50, 43, 0.1);
   }
   50% {
     box-shadow:
-      inset 0 0.5px 1px rgba(0, 35, 30, 0.75),
-      inset 0 1px 0 rgba(0, 40, 34, 0.65),
-      inset -1px 0 1px rgba(0, 45, 38, 0.35),
-      inset 1px 0 1px rgba(0, 50, 43, 0.25),
-      inset 0 3px 6px rgba(0, 40, 34, 0.55),
-      inset -3px 4px 10px rgba(0, 45, 38, 0.45),
-      inset 3px 5px 12px rgba(0, 48, 41, 0.38),
-      inset 0 10px 20px rgba(0, 50, 43, 0.35),
-      inset -8px 12px 24px rgba(0, 55, 47, 0.28),
-      inset 8px 10px 20px rgba(0, 52, 45, 0.25),
-      inset 0 -1px 0 rgba(95, 255, 245, 0.16),
-      inset 0 -2px 1px rgba(175, 255, 250, 0.12),
-      inset 0 -6px 12px rgba(95, 255, 245, 0.1),
-      inset -6px -8px 16px rgba(0, 255, 247, 0.08),
-      0 1px 2px rgba(95, 255, 245, 0.12);
-    backdrop-filter: blur(28px) saturate(0.95) brightness(0.9);
+      inset 0 2px 4px rgba(0, 0, 0, 0.12),
+      inset 0 -2px 4px rgba(255, 255, 255, 0.08),
+      inset 0 8px 24px rgba(0, 50, 43, 0.25),
+      0 4px 20px rgba(95, 255, 245, 0.08),
+      0 8px 36px rgba(0, 50, 43, 0.15);
   }
-  100% {
+}
+
+/* Subtle shimmer for button */
+@keyframes serene-shimmer {
+  0%, 100% {
     box-shadow:
-      inset 0 0.5px 1px rgba(0, 35, 30, 0.75),
-      inset 0 1px 0 rgba(0, 40, 34, 0.65),
-      inset -1px 0 1px rgba(0, 45, 38, 0.35),
-      inset 1px 0 1px rgba(0, 50, 43, 0.25),
-      inset 0 3px 6px rgba(0, 40, 34, 0.55),
-      inset -3px 4px 10px rgba(0, 45, 38, 0.45),
-      inset 3px 5px 12px rgba(0, 48, 41, 0.38),
-      inset 0 10px 20px rgba(0, 50, 43, 0.35),
-      inset -8px 12px 24px rgba(0, 55, 47, 0.28),
-      inset 8px 10px 20px rgba(0, 52, 45, 0.25),
-      inset 0 -1px 0 rgba(95, 255, 245, 0.12),
-      inset 0 -2px 1px rgba(175, 255, 250, 0.08),
-      inset 0 -6px 12px rgba(95, 255, 245, 0.06),
-      inset -6px -8px 16px rgba(0, 255, 247, 0.04),
-      0 1px 2px rgba(95, 255, 245, 0.08);
-    backdrop-filter: blur(28px) saturate(0.92) brightness(0.88);
+      inset 0 2px 4px rgba(255, 255, 255, 0.1),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.15),
+      inset 0 -12px 32px rgba(0, 50, 43, 0.3),
+      0 4px 16px rgba(0, 50, 43, 0.2),
+      0 8px 32px rgba(0, 50, 43, 0.15),
+      0 16px 48px rgba(0, 50, 43, 0.1);
+  }
+  50% {
+    box-shadow:
+      inset 0 2px 6px rgba(255, 255, 255, 0.12),
+      inset 0 -2px 6px rgba(0, 0, 0, 0.18),
+      inset 0 -12px 32px rgba(0, 50, 43, 0.35),
+      0 4px 20px rgba(95, 255, 245, 0.06),
+      0 8px 36px rgba(0, 50, 43, 0.18),
+      0 16px 52px rgba(0, 50, 43, 0.12);
   }
 }
 
-/* Apply animations to stone surface */
-.stone-surface {
-  animation: serene-light-drift 48s ease-in-out infinite;
-}
-
-.stone-surface::before {
-  animation: serene-ambient-breath 32s ease-in-out infinite;
-}
-
-.stone-surface::after {
-  animation: serene-texture-shift 56s ease-in-out infinite;
-}
-
-/* Apply to button */
-.stone-button {
-  animation: serene-button-shimmer 28s ease-in-out infinite;
-}
-
-/* Apply to input fields */
+/* Apply animations */
 .stone-engraved {
-  animation: serene-input-glow 36s ease-in-out infinite;
+  animation: serene-glow 40s ease-in-out infinite;
+}
+
+.stone-button {
+  animation: serene-shimmer 32s ease-in-out infinite;
 }
 
 /* Legacy animations for compatibility */

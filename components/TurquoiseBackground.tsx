@@ -71,7 +71,7 @@ export default function TurquoiseBackground() {
             ) * 0.5;
 
             // Combine waves (centered around 0.5, variation controlled)
-            let waveValue = (wave1 + wave2) / 1.5;
+            const waveValue = (wave1 + wave2) / 1.5;
 
             // Map to color variation range (subtle)
             const variation = p.map(waveValue, 0, 1, -params.colorVariation, params.colorVariation);

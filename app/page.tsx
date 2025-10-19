@@ -1,10 +1,16 @@
 import SubscribeForm from "@/components/SubscribeForm";
 import Logo from "@/components/shared/Logo";
-import TurquoiseBackground from "@/components/TurquoiseBackground";
+import dynamic from "next/dynamic";
+
+// Load p5.js background only on client-side (no SSR)
+const TurquoiseBackground = dynamic(
+  () => import("@/components/TurquoiseBackground"),
+  { ssr: false }
+);
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-hidden text-white">
+    <main className="stone-surface relative min-h-screen overflow-hidden text-white">
       {/* Generative algorithmic art background */}
       <TurquoiseBackground />
 

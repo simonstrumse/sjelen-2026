@@ -30,7 +30,11 @@ export default function TurquoiseBackground() {
         canvas.style("position", "fixed");
         canvas.style("top", "0");
         canvas.style("left", "0");
+        canvas.style("width", "100vw");
+        canvas.style("height", "100vh");
         canvas.style("z-index", "0");
+        canvas.style("margin", "0");
+        canvas.style("padding", "0");
 
         // Handle high-DPI displays
         p.pixelDensity(1);
@@ -130,5 +134,5 @@ export default function TurquoiseBackground() {
     };
   }, []);
 
-  return <div ref={containerRef} className="fixed inset-0 -z-10" />;
+  return <div ref={containerRef} className="fixed inset-0 -z-10 m-0 p-0" style={{ width: '100vw', height: '100vh' }} />;
 }

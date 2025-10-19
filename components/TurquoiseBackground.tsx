@@ -126,16 +126,20 @@ export default function TurquoiseBackground() {
 
         const { cyanColor, baseColor, tealColor } = params;
 
-        // Render pixel by pixel
-        p.loadPixels();
+        // Render using rectangles instead of pixels for smoother result
+        p.noStroke();
 
-        const resolution = 4; // Lower res for better performance
+        const resolution = 6; // Block size for performance
         for (let y = 0; y < p.height; y += resolution) {
           for (let x = 0; x < p.width; x += resolution) {
+            // Sample from center of block for smoother transitions
+            const sampleX = x + resolution / 2;
+            const sampleY = y + resolution / 2;
+
             // Accumulate light from all pools
             let totalIntensity = 0;
             for (const pool of lightPools) {
-              totalIntensity += getPoolIntensity(pool, x, y, time);
+              totalIntensity += getPoolIntensity(pool, sampleX, sampleY, time);
             }
 
             // Add layered Perlin noise
@@ -144,7 +148,7 @@ export default function TurquoiseBackground() {
               const freq = Math.pow(2, octave) * 0.002;
               const amp = Math.pow(0.5, octave);
               noiseVal +=
-                p.noise(x * freq, y * freq, time * 0.0001 * params.driftSpeed) *
+                p.noise(sampleX * freq, sampleY * freq, time * 0.0001 * params.driftSpeed) *
                 amp;
             }
 
@@ -168,24 +172,11 @@ export default function TurquoiseBackground() {
               b = p.lerp(tealColor.b, baseColor.b, t);
             }
 
-            // Fill pixel block
-            for (let dy = 0; dy < resolution; dy++) {
-              for (let dx = 0; dx < resolution; dx++) {
-                const px = x + dx;
-                const py = y + dy;
-                if (px < p.width && py < p.height) {
-                  const index = (px + py * p.width) * 4;
-                  p.pixels[index] = r;
-                  p.pixels[index + 1] = g;
-                  p.pixels[index + 2] = b;
-                  p.pixels[index + 3] = 255;
-                }
-              }
-            }
+            // Draw rectangle (no gaps, smooth transitions)
+            p.fill(r, g, b);
+            p.rect(x, y, resolution, resolution);
           }
         }
-
-        p.updatePixels();
       };
 
       p.windowResized = () => {

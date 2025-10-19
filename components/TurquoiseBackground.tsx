@@ -31,12 +31,12 @@ export default function TurquoiseBackground() {
         canvas.style("top", "0");
         canvas.style("left", "0");
         canvas.style("z-index", "0");
-        canvas.style("width", "100vw");
-        canvas.style("height", "100vh");
+
+        // Handle high-DPI displays
+        p.pixelDensity(1);
 
         p.colorMode(p.RGB, 255);
         p.noStroke();
-        p.noSmooth(); // Prevent anti-aliasing artifacts
 
         // Initialize
         p.randomSeed(params.seed);
@@ -54,14 +54,15 @@ export default function TurquoiseBackground() {
 
         const resolution = 6; // Smaller blocks for smoother result
 
-        // Ensure we cover the full canvas including edges - add extra column/row for safety
-        const cols = Math.ceil(p.width / resolution) + 1;
-        const rows = Math.ceil(p.height / resolution) + 1;
+        // Start before 0 and extend beyond canvas to ensure complete coverage
+        const startX = -resolution;
+        const startY = -resolution;
+        const endX = p.width + resolution;
+        const endY = p.height + resolution;
 
-        for (let row = 0; row < rows; row++) {
-          for (let col = 0; col < cols; col++) {
-            const x = col * resolution;
-            const y = row * resolution;
+        // Draw from edge to edge with guaranteed coverage
+        for (let y = startY; y < endY; y += resolution) {
+          for (let x = startX; x < endX; x += resolution) {
 
             // Sample from center of block
             const sampleX = x + resolution / 2;
@@ -105,9 +106,9 @@ export default function TurquoiseBackground() {
               b = p.lerp(baseColor.b, tealColor.b, t * 0.4);
             }
 
-            // Draw rectangle - add overlap to prevent any gaps
+            // Draw rectangle with overlap to prevent any gaps
             p.fill(r, g, b);
-            p.rect(x, y, resolution + 1, resolution + 1);
+            p.rect(x, y, resolution + 2, resolution + 2);
           }
         }
       };

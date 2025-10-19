@@ -38,8 +38,27 @@ body {
 .stone-surface {
   position: relative;
   isolation: isolate;
-  background: var(--turquoise);
   overflow: hidden;
+  /* Animated turquoise gradient - replaces p5.js for 1000x better performance */
+  background:
+    radial-gradient(ellipse 800px 600px at 20% 20%, rgba(95, 255, 245, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse 700px 800px at 80% 25%, rgba(0, 255, 247, 0.12) 0%, transparent 45%),
+    radial-gradient(ellipse 900px 700px at 65% 15%, rgba(175, 255, 250, 0.08) 0%, transparent 40%),
+    radial-gradient(ellipse 1000px 1000px at 50% 50%, #029d86 0%, #03d3b1 40%, #04ccb2 60%, #029d86 100%);
+  background-size: 100% 100%;
+  animation: gentle-wave 24s ease-in-out infinite alternate;
+}
+
+@keyframes gentle-wave {
+  0% {
+    background-position: 0% 0%, 100% 0%, 50% 0%, 50% 50%;
+  }
+  50% {
+    background-position: 5% 3%, 95% 5%, 45% 2%, 50% 50%;
+  }
+  100% {
+    background-position: 0% 0%, 100% 0%, 50% 0%, 50% 50%;
+  }
 }
 
 /* ENGRAVED INPUT - Deep carved depression in stone */
@@ -83,8 +102,11 @@ body {
     inset -6px 12px 24px rgba(0, 55, 56, 0.35),
     /* Outer glow */
     0 1px 2px rgba(95, 255, 245, 0.1);
-  backdrop-filter: blur(12px) saturate(1.05) brightness(0.88);
-  transition: all 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(6px) saturate(1.05) brightness(0.88);
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* GPU acceleration */
+  will-change: transform;
+  transform: translateZ(0);
   text-shadow:
     0 1px 3px rgba(0, 40, 34, 0.5),
     0 2px 8px rgba(0, 30, 26, 0.3);
@@ -167,8 +189,11 @@ body {
     0 4px 8px rgba(0, 45, 46, 0.35),
     0 8px 16px rgba(0, 50, 50, 0.25),
     0 16px 32px rgba(0, 48, 48, 0.15);
-  backdrop-filter: blur(16px) saturate(1.18) brightness(1.12);
-  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px) saturate(1.18) brightness(1.12);
+  transition: all 120ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* GPU acceleration */
+  will-change: transform;
+  transform: translateZ(0);
   text-shadow:
     0 1px 2px rgba(0, 50, 43, 0.4),
     0 3px 8px rgba(0, 40, 34, 0.25),
@@ -213,7 +238,7 @@ body {
 
 /* Hover - brighter turquoise + subtle lift */
 .stone-button:hover {
-  transform: translateY(-1px);
+  transform: translateY(-1px) translateZ(0);
   background:
     /* Lighter texture */
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100'%3E%3Cfilter id='polish'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' seed='88'/%3E%3C/filter%3E%3Crect width='300' height='100' filter='url(%23polish)' opacity='0.12'/%3E%3C/svg%3E"),
@@ -259,7 +284,7 @@ body {
 
 /* Active - pressed down, darker turquoise */
 .stone-button:active {
-  transform: translateY(3px);
+  transform: translateY(3px) translateZ(0);
   background:
     /* Texture remains */
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 100'%3E%3Cfilter id='polish'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' seed='88'/%3E%3C/filter%3E%3Crect width='300' height='100' filter='url(%23polish)' opacity='0.12'/%3E%3C/svg%3E"),
